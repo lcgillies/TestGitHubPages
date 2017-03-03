@@ -12,3 +12,7 @@ We will display samples with block quotes:
     Are like this---using 4;
     indented spaces at the front;
     of the line
+
+And here is a flow image:
+
+![Alt text for flow image] (swtApttusCallidusCloudProductSync.png "Apttus to CallidusCloud Product Synchronization")
