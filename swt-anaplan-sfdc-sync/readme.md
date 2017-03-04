@@ -1,4 +1,4 @@
-#Synch Anaplan to Salesforce
+`#Synch Anaplan to Salesforce
     swt-anaplan-sfdc-sync
 
 ##Process account and sales coverage segments from Anaplan to Salesforce
@@ -24,7 +24,7 @@
   
    ####Sales coverage segments
    1.   Convert JSON to a POJO
-   1.   *Upsert* the following Anaplan model values to the Salesforce SWT_Sales_Coverage_Segment__c object based on salesSegmentId:
+   1.   *Upsert* the following Anaplan model values to the `Salesforce SWT_Sales_Coverage_Segment__c` object based on salesSegmentId:
       * Sales Segment ID -> Id
       * Business Area Group -> SWT_Business_Area_Group__c
       * Customer Segment -> SWT_Customer_Segment__c
