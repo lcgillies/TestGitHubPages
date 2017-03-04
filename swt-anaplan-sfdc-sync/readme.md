@@ -2,9 +2,10 @@
     swt-anaplan-sfdc-sync
 
 ##Process account and sales coverage segments from Anaplan to Salesforce
+    swt-anaplan-sfdc-account-salescoveragesegment-sync  
   
 1. Poll Anaplan once every 24 hours
-1. Export the Account Segmentation model (defined in the {accountsegmentation.modelname} global)
+1. Export the Account Segmentation model (defined in the `accountsegmentation.modelname` global)
 1. Convert **payload** to JSON and log to the Audit flow (async)
 1. A null **payload** logs the INFO "No Account and SalescoverageSegment Records are fetched from Anaplan"
 1. **Payload** is batch processed in parallel for  
@@ -33,4 +34,6 @@
       * `Account ID` -> `SWT_Account__c`
   
 ##Process sales territory from Anaplan to Salesforce
-
+    swt-anaplan-sfdc-salesterriroty-sync
+    
+1.    
