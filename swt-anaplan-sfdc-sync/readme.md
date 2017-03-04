@@ -4,7 +4,7 @@
 ##Process account and sales coverage segments from Anaplan to Salesforce
     swt-anaplan-sfdc-account-salescoveragesegment-sync  
   
-1. Poll Anaplan once every 24 hours
+1. Poll Anaplan every 1 day
 1. Export the Account Segmentation model (defined in the `accountsegmentation.modelname` global)
 1. Convert **payload** to JSON and log to the Audit flow (async)
 1. A null **payload** logs the INFO "No Account and SalescoverageSegment Records are fetched from Anaplan"
@@ -25,7 +25,7 @@
   
    ####Sales coverage segments
    1.   Convert JSON to a POJO
-   1.   *Upsert* the following Anaplan model values to the `Salesforce SWT_Sales_Coverage_Segment__c` object based on `salesSegmentId`:
+   1.   *Upsert* the following Anaplan model values to the Salesforce `SWT_Sales_Coverage_Segment__c` object based on `salesSegmentId`:
       * `Sales Segment ID` -> `Id`
       * `Business Area Group` -> `SWT_Business_Area_Group__c`
       * `Customer Segment` -> `SWT_Customer_Segment__c`
@@ -36,4 +36,24 @@
 ##Process sales territory from Anaplan to Salesforce
     swt-anaplan-sfdc-salesterriroty-sync
     
-1.    
+1. Export the Account Segmentation model (defined in the `salesterriroty.modelname` global)
+1. Convert **payload** to JSON and log to the Audit flow (async)
+1. A null **payload** logs the INFO "No SalesTerritory Records found in Anaplan"
+1. Convert JSON to a POJO
+1. *Upsert* the following Anaplan model values to the `SWT_Sales_Territory__c` object based on `Territory ID`
+  * Territory ID -> Id
+  * Sales Territories -> SWT_Sales_Territory_Name
+flowVars.salesTerritoryName=payload.'Sales Territories';
+flowVars.startDate=payload.'Start Date';
+flowVars.endDate=payload.'End Date';
+flowVars.region=payload.'Region';
+flowVars.country=payload.'Country';
+
+	Id: flowVars.Id,
+	SWT_Sales_Territory_Name__c: flowVars.salesTerritoryName,
+	SWT_Sales_Territory_Short_Name__c: flowVars.salesTerritoryName,
+	SWT_Territory_Region__c: flowVars.region,
+	SWT_Territory_Country__c: flowVars.country,
+	SWT_Start_Date__c:" " when flowVars.startDate == null or flowVars.startDate == " " otherwise (flowVars.startDate ++ " 13:30:00.000") as :localdatetime {format: "yyyy-MM-dd HH:mm:ss.SSS"},
+	SWT_End_Date__c: " " when flowVars.endDate == null or flowVars.endDate == " " otherwise (flowVars.endDate ++ " 13:30:00.000") as :localdatetime {format: "yyyy-MM-dd HH:mm:ss.SSS"}
+	
