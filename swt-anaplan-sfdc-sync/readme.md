@@ -1,9 +1,9 @@
 #Synch Anaplan to Salesforce
-###swt-anaplan-sfdc-sync
+    swt-anaplan-sfdc-sync
 
 ##Process account and sales coverage segments from Anaplan to Salesforce
   
-1. Once a day, poll Anaplan
+1.  Once a day, poll Anaplan
 1. Export the Account Segmentation model (which one is defined in the {accountsegmentation.modelname} global
 1. Payload is converted to JSON and logged to the Audit flow (async)
 1. A null payload logs the INFO "No Account and SalescoverageSegment Records are fetched from Anaplan"
