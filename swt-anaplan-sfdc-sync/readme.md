@@ -1,4 +1,4 @@
-`#Synch Anaplan to Salesforce
+#Synch Anaplan to Salesforce
     swt-anaplan-sfdc-sync
 
 ##Process account and sales coverage segments from Anaplan to Salesforce
@@ -14,9 +14,9 @@
    ####Accounts
    1.   Convert JSON to a POJO
    1.   *Update* the following Anaplan model values to the Saleforce Account object based on ID:
-      * Account ID -> ID
-      * CMT L1 -> SWT_CMT_1__c
-      * CMT L2 -> SWT_CMT_2__c
+      * `Account ID` -> `ID`
+      * `CMT L1` -> `SWT_CMT_1__c`
+      * `CMT L2` -> `SWT_CMT_2__c`
       * Region -> SWT_Region__c
       * Account Number -> AccountNumber
       * Accounts -> Name
