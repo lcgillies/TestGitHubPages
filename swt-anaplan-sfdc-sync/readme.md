@@ -40,20 +40,14 @@
 1. Convert **payload** to JSON and log to the Audit flow (async)
 1. A null **payload** logs the INFO "No SalesTerritory Records found in Anaplan"
 1. Convert JSON to a POJO
-1. *Upsert* the following Anaplan model values to the `SWT_Sales_Territory__c` object based on `Territory ID`
+1. Look for the Territory ID in `SWT_Sales_Territory__c`
+1. A null **payload** logs the INFO "No existing record"
+1. *UPSERT* the following Anaplan model values to the Salesforce `SWT_Sales_Territory__c` object based on `Id`
   * Territory ID -> Id
   * Sales Territories -> SWT_Sales_Territory_Name
-flowVars.salesTerritoryName=payload.'Sales Territories';
-flowVars.startDate=payload.'Start Date';
-flowVars.endDate=payload.'End Date';
-flowVars.region=payload.'Region';
-flowVars.country=payload.'Country';
-
-	Id: flowVars.Id,
-	SWT_Sales_Territory_Name__c: flowVars.salesTerritoryName,
-	SWT_Sales_Territory_Short_Name__c: flowVars.salesTerritoryName,
-	SWT_Territory_Region__c: flowVars.region,
-	SWT_Territory_Country__c: flowVars.country,
-	SWT_Start_Date__c:" " when flowVars.startDate == null or flowVars.startDate == " " otherwise (flowVars.startDate ++ " 13:30:00.000") as :localdatetime {format: "yyyy-MM-dd HH:mm:ss.SSS"},
-	SWT_End_Date__c: " " when flowVars.endDate == null or flowVars.endDate == " " otherwise (flowVars.endDate ++ " 13:30:00.000") as :localdatetime {format: "yyyy-MM-dd HH:mm:ss.SSS"}
-	
+  * Sales Territories -> SWT_Sales_Territory_Name
+  * Region -> SWT_Territory_Region__c
+  * Country -> SWT_Territory_Country__c
+  * Start Date -> blank if null or blank, otherwise express in local time and increment (?) by 13.5 hours
+  * End Date ->  blank if null or blank, otherwise express in local time and increment (?) by 13.5 hours
+1. 
