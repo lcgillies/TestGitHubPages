@@ -24,7 +24,7 @@
       * `Business Area Group` -> `SWT_Business_Unit__c`
    1.   Set **payload** to any failed records
    1.   Build record count message as a variable
-   1.   Perform Failed Records flow
+   1.   Perform [Failed Records] [1] flow
    
   
    ####Sales coverage segments
@@ -71,3 +71,5 @@
       * `ApplicationName` <- `p('name')`
       * `TargetSystem` <- `p('target')`
       * `SourceSystem` <- `p('source')`
+
+[1]: https://github.com/lcgillies/TestGitHubPages/edit/dev/swt-CommonServicesWrapper/readme.md
