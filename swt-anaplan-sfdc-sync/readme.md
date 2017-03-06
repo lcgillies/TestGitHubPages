@@ -22,6 +22,10 @@
       * `Account Number` -> `AccountNumber`
       * `Accounts` -> `Name`
       * `Business Area Group` -> `SWT_Business_Unit__c`
+   1.   Set **payload** to any failed records
+   1.   Build record count message as a variable
+   1.   Perform Failed Records flow
+   
   
    ####Sales coverage segments
    1.   Convert JSON to a POJO
@@ -51,6 +55,11 @@
   * `Start Date` -> blank if null or blank, otherwise express in local time and increment (?) by 13.5 hours
   * `End Date` ->  blank if null or blank, otherwise express in local time and increment (?) by 13.5 hours
 1. Log an INFO message containing the payload
+
+##Shared processes
+    supporting_flow
+    
+   ####Failure Support    
 1. Test for payload success---if false, log the errors and queue a failure to Failure_Out
 1. Pick up Failure_Out queue, test for records
 1. If Failure_Out records exist, map the following values to a CSV and batch email 
