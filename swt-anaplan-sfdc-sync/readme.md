@@ -115,4 +115,4 @@
       * `SourceSystem` <- `p('source')`
 
 [1]: https://github.com/lcgillies/TestGitHubPages/edit/dev/CommonServicesWrapper/
-[2]: #FailureSupport
+[2]: https://github.com/lcgillies/TestGitHubPages/edit/dev/swt-anaplan-sfdc-sync/#FailureSupport
