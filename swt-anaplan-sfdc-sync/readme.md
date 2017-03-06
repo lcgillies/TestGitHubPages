@@ -23,9 +23,16 @@
             * sfdcFailuresupport_Subflow (Process Records)
             * FailedRecordsFlow (On Complete)
       
-* supporting_flow.xml - 
-        
-        
+* supporting_flow.xml - support flows
+   * loggingSupportFlow
+   * GlobalExceptionStrategy
+      * Transformation Exception
+      * Connection Exception Strategy
+      * InternalProcessingException Strategy
+   * FailedRecordsFlow
+   * RealtimeEmailFlow
+   * BatchEmailFlow
+   * sfdcFailuresupport_Subflow
 
 ##Process account and sales coverage segments from Anaplan to Salesforce
     swt-anaplan-sfdc-account-salescoveragesegment-sync  
