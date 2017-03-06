@@ -2,6 +2,8 @@
 
     swt-anaplan-sfdc-sync
    
+##Flow Outline
+
 * global.xml - contains environment properties (anaplan cert, sfdc oauth, smtp connector)
 
 * swt-anaplan-sfdc-account-salescoveragesegment-sync.xml - process account and sales coverage segment changes
@@ -70,7 +72,7 @@
       * `Account ID` -> `SWT_Account__c`
    1.   Set **payload** to any failed records
    1.   Build record count message as a variable
-   1.   Perform [Failed Records] [2] flow
+   1.   Perform <A href="#FailureSupport">Failed Records</A> flow
 
   
 ##Process sales territory from Anaplan to Salesforce
@@ -93,7 +95,7 @@
 1. Log an INFO message containing the payload
 1. Set **payload** to any failed records
 1. Build record count message as a variable
-1. Perform [Failed Records] [2] flow
+1. Perform <A href="#FailureSupport">Failed Records</A> flow
 
 
 ##Shared processes
@@ -115,4 +117,3 @@
       * `SourceSystem` <- `p('source')`
 
 [1]: https://github.com/lcgillies/TestGitHubPages/edit/dev/CommonServicesWrapper/
-[2]: https://#FailureSupport
