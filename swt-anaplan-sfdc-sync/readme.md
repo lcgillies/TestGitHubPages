@@ -34,7 +34,7 @@
       * `Account ID` -> `SWT_Account__c`
   
 ##Process sales territory from Anaplan to Salesforce
-    swt-anaplan-sfdc-salesterriroty-sync
+    swt-anaplan-sfdc-salesterritory-sync
     
 1. Export the Account Segmentation model (defined in the `salesterriroty.modelname` global)
 1. Convert **payload** to JSON and log to the Audit flow (async)
@@ -43,11 +43,22 @@
 1. Look for the Territory ID in `SWT_Sales_Territory__c`
 1. A null **payload** logs the INFO "No existing record"
 1. *UPSERT* the following Anaplan model values to the Salesforce `SWT_Sales_Territory__c` object based on `Id`
-  * Territory ID -> Id
-  * Sales Territories -> SWT_Sales_Territory_Name
-  * Sales Territories -> SWT_Sales_Territory_Name
-  * Region -> SWT_Territory_Region__c
-  * Country -> SWT_Territory_Country__c
-  * Start Date -> blank if null or blank, otherwise express in local time and increment (?) by 13.5 hours
-  * End Date ->  blank if null or blank, otherwise express in local time and increment (?) by 13.5 hours
-1. 
+  * `Territory ID` -> `Id`
+  * `Sales Territories` -> `SWT_Sales_Territory_Name`
+  * `Sales Territories` -> `SWT_Sales_Territory_Name`
+  * `Region` -> `SWT_Territory_Region__c`
+  * `Country` -> `SWT_Territory_Country__c`
+  * `Start Date` -> blank if null or blank, otherwise express in local time and increment (?) by 13.5 hours
+  * `End Date` ->  blank if null or blank, otherwise express in local time and increment (?) by 13.5 hours
+1. Log an INFO message containing the payload
+1. Test for payload success---if false, log the errors and queue a failure to Failure_Out
+1. Pick up Failure_Out queue, test for records
+1. If Failure_Out records exist, map the following values to a CSV and batch email 
+  * RecordId : $.RecordId
+  * Exception : $.message
+  * StatusCode: $.statusCode
+  * BatchId : sessionVars.CorrelationID
+  * Status : "Error"
+  * ApplicationName : p('name'),
+  * TargetSystem : p('target'),
+  * SourceSystem : p('source')
