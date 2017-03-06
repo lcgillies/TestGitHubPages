@@ -4,7 +4,8 @@
    
 * global.xml - contains environment properties (anaplan cert, sfdc oauth, smtp connector)
 
-* swt-anaplan-sfdc-account-salescoveragesegment-sync.xml - process account and sales coverage segment changes
+* swt-anaplan-sfdc-account-salescoveragesegment-sync.xml
+process account and sales coverage segment changes
    * processAccountandSalescoveragesegmentsync (synch)
       * EXT: commonServicesAuditFlow
       * processAcountBatchProcessing (ORDERED_SEQUENTIAL by 100)
