@@ -59,7 +59,7 @@
       * `Business Area Group` -> `SWT_Business_Unit__c`
    1.   Set **payload** to any failed records
    1.   Build record count message as a variable
-   1.   Perform <A href="#FailureSupport">Failed Records</A> flow
+   1.   Perform <A href="#FailedRecordsFlow">Failed Records</A> flow
   
    ####Sales coverage segments
    1.   Convert JSON to a POJO
@@ -72,7 +72,7 @@
       * `Account ID` -> `SWT_Account__c`
    1.   Set **payload** to any failed records
    1.   Build record count message as a variable
-   1.   Perform <A href="#FailureSupport">Failed Records</A> flow
+   1.   Perform <A href="#FailedRecordsFlow">Failed Records</A> flow
 
   
 ##Process sales territory from Anaplan to Salesforce
@@ -95,13 +95,26 @@
 1. Log an INFO message containing the payload
 1. Set **payload** to any failed records
 1. Build record count message as a variable
-1. Perform <A href="#FailureSupport">Failed Records</A> flow
+1. Perform <A href="#FailedRecordsFlow">Failed Records</A> flow
 
 
 ##Shared processes
     supporting_flow
+<A name="loggingSupportFlow">
+####loggingSupportflow</A>
+   1. Capture server date/time
+   1. Capture values for logging:
+      * `ApplicationName` <- `p('name')`
+      * `TimeStamp` <- `flowVars.time`
+      * `ExecutionPoint` <- `flowVars.EPoint`
+      * `Status` <- "Success"`
+      * `CorelationID` <- `sessionVars.CorrelationID`
+      * `TargetSystem` <- `p('target')`
+      * `SourceSystem` <- `p('source')`
+      * `TransactionID` <- `sessionVars.uniqueID`
+   1.  Conver to string and log as INFO
 
-<A name="FailureSupport">
+<A name="FailedRecordsFlow">
 ####FailedRecordsFlow</A>
    1.   Test for payload success---if false, log the errors and queue a failure to Failure_Out
    1.   Pick up Failure_Out queue, test for records
@@ -114,5 +127,6 @@
       * `ApplicationName` <- `p('name')`
       * `TargetSystem` <- `p('target')`
       * `SourceSystem` <- `p('source')`
+  
 
 [1]: https://github.com/lcgillies/TestGitHubPages/edit/dev/CommonServicesWrapper/
