@@ -6,7 +6,7 @@
 
 * swt-anaplan-sfdc-account-salescoveragesegment-sync.xml - process account and sales coverage segment changes
    * processAccountandSalescoveragesegmentsync (synch)
-      * **EXT**: commonServicesAuditFlow
+      * **EXT**: [commonServicesAuditFlow] [1]
       * processAcountBatchProcessing (ORDERED_SEQUENTIAL by 100)
          * sfdcFailuresupport_Subflow (Process Records)
          * FailedRecordsFlow (On Complete)
@@ -17,7 +17,7 @@
 * swt-anaplan-sfdc-salesterritory-sync.xml - process sales territory updates
    * processSalesterritorysyncflow (synch)
       * **EXT**: commonServicesAuditFlow
-      * processSalesterritorySyncBatchProcessing (synch)
+      * processSalesterritorySyncBatchProcessing (ORDERED_SEQUENTIAL by 100)
          * Map_Salesterritory_Batch_Step (Process Records)
             * swt-anaplan-sfdc-salesterritorySub_Flow
             * sfdcFailuresupport_Subflow (Process Records)
@@ -70,7 +70,7 @@
       * `Account ID` -> `SWT_Account__c`
    1.   Set **payload** to any failed records
    1.   Build record count message as a variable
-   1.   Perform [Failed Records] [1] flow
+   1.   Perform [Failed Records] [2] flow
 
   
 ##Process sales territory from Anaplan to Salesforce
@@ -93,13 +93,15 @@
 1. Log an INFO message containing the payload
 1. Set **payload** to any failed records
 1. Build record count message as a variable
-1. Perform [Failed Records] [1] flow
+1. Perform [Failed Records] [2] flow
 
 
 ##Shared processes
     supporting_flow
-    
+
+<A name="FailureSupport">
 ####Failure Support
+</A>
    1.   Test for payload success---if false, log the errors and queue a failure to Failure_Out
    1.   Pick up Failure_Out queue, test for records
    1.   If Failure_Out records exist, map the following values to a CSV and batch email 
@@ -113,4 +115,4 @@
       * `SourceSystem` <- `p('source')`
 
 [1]: https://github.com/lcgillies/TestGitHubPages/edit/dev/CommonServicesWrapper/
-[2]: https://github.com/lcgillies/TestGitHubPages/edit/dev/CommonServicesWrapper/
+[2]: #FailureSupport
