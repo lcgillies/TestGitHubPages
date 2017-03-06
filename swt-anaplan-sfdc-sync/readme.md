@@ -2,7 +2,7 @@
 
     swt-anaplan-sfdc-sync
    
-##Flow Outline
+##Flows Outline
 
 * global.xml - contains environment properties (anaplan cert, sfdc oauth, smtp connector)
 
@@ -106,14 +106,58 @@
    1. Capture values for logging:
       * `ApplicationName` <- `p('name')`
       * `TimeStamp` <- `flowVars.time`
-      * `ExecutionPoint` <- `flowVars.EPoint`
+      * `Exception` <- `flowVars.EPoint`
+      * `ExceptionType` <- "Technical/TransformationFailure"
       * `Status` <- "Success"`
       * `CorelationID` <- `sessionVars.CorrelationID`
       * `TargetSystem` <- `p('target')`
       * `SourceSystem` <- `p('source')`
-      * `TransactionID` <- `sessionVars.uniqueID`
-   1.  Conver to string and log as INFO
+   1.  Convert to string and Log as INFO
 
+####GlobalExceptionStrategy
+#####Transformation Exception
+   1. Add following properties to message:
+      * `EPoint` <- `exception.message`
+      * `time` <- `server.dateTime`
+   1. Capture values for logging:
+      * `ApplicationName` <- `p('name')`
+      * `TimeStamp` <- `flowVars.time`
+      * `Exception` <- `flowVars.EPoint`
+      * `ExceptionType` <- "Technical/TransformationFailure"
+      * `Status` <- `"Error"`
+      * `CorelationID` <- `sessionVars.CorrelationID`
+      * `TargetSystem` <- `p('target')`
+      * `SourceSystem` <- `p('source')`
+   1.  Put message into <A href="#RealTimeEmailFlow">RealTimeEmailFlow</A>      
+#####Connection Exception Strategy
+   1. Add following properties to message:
+      * `EPoint` <- `exception.message`
+      * `time` <- `server.dateTime`
+   1. Capture values for logging:
+      * `ApplicationName` <- `p('name')`
+      * `TimeStamp` <- `flowVars.time`
+      * `Exception` <- `flowVars.EPoint`
+      * `ExceptionType` <- "Technical/Connection Failure"
+      * `Status` <- `"Error"`
+      * `CorelationID` <- `sessionVars.CorrelationID`
+      * `TargetSystem` <- `p('target')`
+      * `SourceSystem` <- `p('source')`
+   1.  Put message into <A href="#RealTimeEmailFlow">RealTimeEmailFlow</A>         
+#####InternalProcessingExceptionStrategy
+   1. Add following properties to message:
+      * `EPoint` <- `exception.message`
+      * `time` <- `server.dateTime`
+   1. Capture values for logging:
+      * `ApplicationName` <- `p('name')`
+      * `TimeStamp` <- `flowVars.time`
+      * `Exception` <- `flowVars.EPoint`
+      * `Status` <- `"Error"`
+      * `ExceptionType` <- "Business Exception/ReferExceptionMessage"
+      * `CorelationID` <- `sessionVars.CorrelationID`
+      * `TargetSystem` <- `p('target')`
+      * `SourceSystem` <- `p('source')`
+   1.  Put message into <A href="#RealTimeEmailFlow">RealTimeEmailFlow</A>         
+   
 <A name="FailedRecordsFlow">
 ####FailedRecordsFlow</A>
    1.   Test for payload success---if false, log the errors and queue a failure to Failure_Out
