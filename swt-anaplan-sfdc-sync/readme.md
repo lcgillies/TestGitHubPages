@@ -115,7 +115,7 @@
    1.  Convert to string and Log as INFO
 
 ####GlobalExceptionStrategy
-#####Transformation Exception
+   #####Transformation Exception
    1. Add following properties to message:
       * `EPoint` <- `exception.message`
       * `time` <- `server.dateTime`
@@ -128,8 +128,9 @@
       * `CorelationID` <- `sessionVars.CorrelationID`
       * `TargetSystem` <- `p('target')`
       * `SourceSystem` <- `p('source')`
-   1.  Put message into <A href="#RealTimeEmailFlow">RealTimeEmailFlow</A>      
-#####Connection Exception Strategy
+   1.  Put message into <A href="#RealTimeEmailFlow">RealTimeEmailFlow</A>
+   
+   #####Connection Exception Strategy
    1. Add following properties to message:
       * `EPoint` <- `exception.message`
       * `time` <- `server.dateTime`
@@ -142,8 +143,9 @@
       * `CorelationID` <- `sessionVars.CorrelationID`
       * `TargetSystem` <- `p('target')`
       * `SourceSystem` <- `p('source')`
-   1.  Put message into <A href="#RealTimeEmailFlow">RealTimeEmailFlow</A>         
-#####InternalProcessingExceptionStrategy
+   1.  Put message into <A href="#RealTimeEmailFlow">RealTimeEmailFlow</A>
+
+   #####InternalProcessingExceptionStrategy
    1. Add following properties to message:
       * `EPoint` <- `exception.message`
       * `time` <- `server.dateTime`
