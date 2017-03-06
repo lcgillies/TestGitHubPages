@@ -39,7 +39,7 @@
   
 1. Poll Anaplan every 1 day
 1. Export the Account Segmentation model (defined in the `accountsegmentation.modelname` global)
-1. Convert **payload** to JSON and log to the [Audit flow] [2] (async)
+1. Convert **payload** to JSON and log to the [Audit flow] [1] (async)
 1. A null **payload** logs the INFO "No Account and SalescoverageSegment Records are fetched from Anaplan"
 1. **Payload** is batch processed in parallel for  
    * Accounts  
@@ -57,7 +57,7 @@
       * `Business Area Group` -> `SWT_Business_Unit__c`
    1.   Set **payload** to any failed records
    1.   Build record count message as a variable
-   1.   Perform [Failed Records] [1] flow
+   1.   Perform <A href="FailedRecords">Failed Records</A> flow
   
    ####Sales coverage segments
    1.   Convert JSON to a POJO
