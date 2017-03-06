@@ -57,7 +57,7 @@
       * `Business Area Group` -> `SWT_Business_Unit__c`
    1.   Set **payload** to any failed records
    1.   Build record count message as a variable
-   1.   Perform <A href="FailedRecords">Failed Records</A> flow
+   1.   Perform <A href="#FailedRecords">Failed Records</A> flow
   
    ####Sales coverage segments
    1.   Convert JSON to a POJO
