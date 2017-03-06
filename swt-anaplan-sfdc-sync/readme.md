@@ -72,4 +72,4 @@
       * `TargetSystem` <- `p('target')`
       * `SourceSystem` <- `p('source')`
 
-[1]: https://github.com/lcgillies/TestGitHubPages/edit/dev/swt-CommonServicesWrapper/readme.md
+[1]: https://github.com/lcgillies/TestGitHubPages/edit/dev/CommonServicesWrapper/readme.md
