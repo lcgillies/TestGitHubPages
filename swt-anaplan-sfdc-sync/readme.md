@@ -4,9 +4,8 @@
    
 * global.xml - contains environment properties (anaplan cert, sfdc oauth, smtp connector)
 
-* swt-anaplan-sfdc-account-salescoveragesegment-sync.xml  
-process account and sales coverage segment changes
-   * processAccountandSalescoveragesegmentsync (synch)
+* swt-anaplan-sfdc-account-salescoveragesegment-sync.xml - process account and sales coverage segment changes
+      * processAccountandSalescoveragesegmentsync (synch)
       * EXT: commonServicesAuditFlow
       * processAcountBatchProcessing (ORDERED_SEQUENTIAL by 100)
          * sfdcFailuresupport_Subflow (Process Records)
@@ -16,6 +15,7 @@ process account and sales coverage segment changes
          * FailedRecordsFlow (On Complete)
       
 * swt-anaplan-sfdc-salesterritory-sync.xml - process sales territory updates
+   * processSalesterritorysyncflow
 * supporting_flow.xml - 
         
         
