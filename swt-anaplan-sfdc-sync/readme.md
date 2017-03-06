@@ -102,8 +102,7 @@
     supporting_flow
 
 <A name="FailureSupport">
-####Failure Support
-</A>
+####FailedRecordsFlow</A>
    1.   Test for payload success---if false, log the errors and queue a failure to Failure_Out
    1.   Pick up Failure_Out queue, test for records
    1.   If Failure_Out records exist, map the following values to a CSV and batch email 
