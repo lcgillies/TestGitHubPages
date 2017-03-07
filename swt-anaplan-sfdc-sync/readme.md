@@ -209,7 +209,7 @@
 
 [1]: https://github.com/lcgillies/TestGitHubPages/blob/dev/CommonServicesWrapper/
 [g001]: ./assets/swt-anaplan-sfdc-sync.supporting_flow.loggingSupportFlow.png
-[g002]: ./assets/swt-anaplan-sfdc-sync.swt-anaplan-sfdc-sync.supporting_flow.GlobalExceptionStrategy.png
+[g002]: ./assets/swt-anaplan-sfdc-sync.supporting_flow.GlobalExceptionStrategy.png
 [g003]: ./assets/swt-anaplan-sfdc-sync.supporting_flow.FailedRecordsFlow.png
 [g004]: ./assets/swt-anaplan-sfdc-sync.supporting_flow.RealTimeEmailFlow.png
 [g005]: ./assets/swt-anaplan-sfdc-sync.supporting_flow.BatchEmailFlow.png
