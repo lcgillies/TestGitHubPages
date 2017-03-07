@@ -49,7 +49,7 @@
 
 ![swt-anaplan-sfdc-sync.swt-anaplan-sfdc-sync.swt-anaplan-sfdc-account-salescoveragesegment-sync.processAccountandSalescoveragesegmentsync] [g101]
 
-   ####Accounts
+####Accounts
    1.   Convert JSON to a POJO
    1.   *Update* the following Anaplan model values to the Saleforce `Accounts` object based on ID:
       * `Account ID` -> `ID`
@@ -65,7 +65,7 @@
 
 ![swt-anaplan-sfdc-sync.swt-anaplan-sfdc-sync.swt-anaplan-sfdc-account-salescoveragesegment-sync.processAccountBatchProcessing] [g102]
 
-   ####Sales coverage segments
+####Sales coverage segments
    1.   Convert JSON to a POJO
    1.   *Upsert* the following Anaplan model values to the Salesforce `SWT_Sales_Coverage_Segment__c` object based on `salesSegmentId`:
       * `Sales Segment ID` -> `Id`
