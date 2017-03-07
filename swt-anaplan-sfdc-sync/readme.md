@@ -197,6 +197,8 @@
    1. Log payload as INFO
    1. Send flow to internal VM endpoint "Failure_Out"
    
-
+https://github.com/lcgillies/TestGitHubPages/blob/dev/swt-anaplan-sfdc-sync/assets/swt-anaplan-sfdc-sync.
 [1]: https://github.com/lcgillies/TestGitHubPages/blob/dev/CommonServicesWrapper/
-[g001]: https://github.com/lcgillies/TestGitHubPages/blob/dev/swt-anaplan-sfdc-sync/assets/swt-anaplan-sfdc-sync.supporting_flow.loggingSupportFlow.png
+[g000]: https://github.com/lcgillies/TestGitHubPages/blob/dev/swt-anaplan-sfdc-sync/assets/swt-anaplan-sfdc-sync.supporting_flow.loggingSupportFlow.png
+[g001]: /assets/swt-anaplan-sfdc-sync.supporting_flow.loggingSupportFlow.png
+[g002]: https://github.com/lcgillies/TestGitHubPages/blob/dev/swt-anaplan-sfdc-sync/assets/swt-anaplan-sfdc-sync.swt-anaplan-sfdc-sync.supporting_flow.GlobalExceptionStrategy
