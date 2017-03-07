@@ -102,7 +102,15 @@
    
 ####Notification SubFlow
     NotificationSub_Flow
-   1. a
+   1. Set flow var `emailSubject` to "ESB Alert <serverName><serviceName><flowName>"
+   1. Parse `Emailbody.html` template
+   1. Get To list from interface
+   1. Get default list from `messsage.outboundProperties.defaulttolist`
+   1. Log "Sending email" as INFO
+   1. Send email via SMTP
+      * Settings contain host, port, user and password for SMTP
+      * To list uses default if nothing from interface, a static From and the subject from the `emailSubject` flow var
+   1. Log "sent email body" and payload as INFO
 
 ####Remove Payload Contnet
     RemovePayloadContent
