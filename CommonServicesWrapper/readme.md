@@ -104,7 +104,7 @@
 <A name="commonServicesExceptionFlow">
 ####Common Services Exception Flow</A>
     commonServicesExceptionFlow
-   1. Same as <A href="#GlobalCommonExceptionStrategy">Global Common Exception Strategy</A> above, except with a Source
+   1. Same as <A href="#globalCommonExceptionStrategy">Global Common Exception Strategy</A> above, except with a Source
 
 ![swt_CommonServicesWrapper.commonServicesWrapper.commonServicesExceptionFlow] [g103]
 
