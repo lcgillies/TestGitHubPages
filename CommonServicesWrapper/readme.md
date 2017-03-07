@@ -51,4 +51,10 @@
    	    *Auditing:*
 	 * `transactionLevel` <- `outboundProperties.transactionLevel`
 	 * `originalPayload` <- `flowVars.originalPayload`
-	    
+   1. Test message.outboundProperties.isAuditPayldReq for "N", post to /Audit via `CommonDBInsert_HTTP_Request_Configuration`
+   1. Perform <A href="#RemovePayloadContent">RemovePayloadContent</A> flow
+   
+   ![swt_CommonServicesWrapper.commonServicesWrapper.commonServicesAuditFlow] [g101]
+   
+   [g101]: ./assets/swt_CommonServicesWrapper.commonServicesWrapper.commonServicesAuditFlow.png
+   
