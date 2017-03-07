@@ -199,4 +199,4 @@
    
 
 [1]: https://github.com/lcgillies/TestGitHubPages/edit/dev/CommonServicesWrapper/
-[g001]:  https://github.com/lcgillies/TestGitHubPages/edit/dev/swt-anaplan-sfdc-sync/assets/swt-anaplan-sfdc-sync supporting_flow loggingSupportFlow.png)
+[g001]: https://github.com/lcgillies/TestGitHubPages/edit/dev/swt-anaplan-sfdc-sync/assets/swt-anaplan-sfdc-sync.supporting_flow.loggingSupportFlow.png)
