@@ -54,7 +54,7 @@
    1. Test message.outboundProperties.isAuditPayldReq for "N", post to /Audit via `CommonDBInsert_HTTP_Request_Configuration`
    1. Perform <A href="#RemovePayloadContent">RemovePayloadContent</A> flow
    
-<A name="#GlobalCommonExceptionStrategy">
+<A name="#Global-Common-Exception-Strategy">
 ####Global Common Exception Strategy</A>
     globalCommonExceptionStrategy
    1. Set the following in the message header:
