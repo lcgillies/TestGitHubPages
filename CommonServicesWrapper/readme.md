@@ -98,7 +98,7 @@
    
 ####Common Services Exception Flow
     commonServicesExceptionFlow
-   1. Same as <A href="#GlobalCommonExceptionStrategy">Global Common Exception Strategy</A> above, except with a Source
+   1. Same as <A href="#Global-Common-Exception-Strategy">Global Common Exception Strategy</A> above, except with a Source
    
 ####Notification SubFlow
     NotificationSub_Flow
