@@ -198,5 +198,5 @@
    1. Send flow to internal VM endpoint "Failure_Out"
    
 
-[1]: https://github.com/lcgillies/TestGitHubPages/edit/dev/CommonServicesWrapper/
-[g001]: https://github.com/lcgillies/TestGitHubPages/edit/dev/swt-anaplan-sfdc-sync/assets/swt-anaplan-sfdc-sync.supporting_flow.loggingSupportFlow.png
+[1]: https://github.com/lcgillies/TestGitHubPages/blob/dev/CommonServicesWrapper/
+[g001]: https://github.com/lcgillies/TestGitHubPages/blob/dev/swt-anaplan-sfdc-sync/assets/swt-anaplan-sfdc-sync.supporting_flow.loggingSupportFlow.png
