@@ -114,6 +114,8 @@
       * `SourceSystem` <- `p('source')`
    1.  Convert to string and Log as INFO
 
+![swt-anaplan-sfdc-sync supporting_flow loggingSupportFlow] ("swt-anaplan-sfdc-sync supporting_flow loggingSupportFlow.png")
+
 ####GlobalExceptionStrategy
 #####*Transformation Exception*
    1. Add following properties to message:
