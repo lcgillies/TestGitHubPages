@@ -53,7 +53,9 @@
 	 * `originalPayload` <- `flowVars.originalPayload`
    1. Test message.outboundProperties.isAuditPayldReq for "N", post to /Audit via `CommonDBInsert_HTTP_Request_Configuration`
    1. Perform <A href="#RemovePayloadContent">RemovePayloadContent</A> flow
-   
+
+![swt_CommonServicesWrapper.commonServicesWrapper.commonServicesAuditFlow] [g101]
+
 <A name="#Global-Common-Exception-Strategy">
 ####Global Common Exception Strategy</A>
     globalCommonExceptionStrategy
@@ -95,11 +97,15 @@
       * exceptionTreeList
    1. Perform <A href="#callExceptionAPI">callExceptionAPI</A> flow (async)
    1. Perform <A href="#RemoveExcpPayloadStackTrace">RemoveExcpPayloadStackTrace</A> flow (async)
-   
+
+![swt_CommonServicesWrapper.commonServicesWrapper.globalCommonExceptionStrategy] [g102]
+
 ####Common Services Exception Flow
     commonServicesExceptionFlow
    1. Same as <A href="#Global-Common-Exception-Strategy">Global Common Exception Strategy</A> above, except with a Source
-   
+
+![swt_CommonServicesWrapper.commonServicesWrapper.commonServicesExceptionFlow] [g103]
+
 ####Notification SubFlow
     NotificationSub_Flow
    1. Set flow var `emailSubject` to "ESB Alert <serverName><serviceName><flowName>"
@@ -112,21 +118,37 @@
       * To list uses default if nothing from interface, a static From and the subject from the `emailSubject` flow var
    1. Log "sent email body" and payload as INFO
 
+![swt_CommonServicesWrapper.commonServicesWrapper.NotificationSub_Flow] [g104]
+
 ####Remove Payload Contnet
     RemovePayloadContent
    1. Hash the payload JSON using java.util.HashMap
    1. Build an expression for `message.payload.Auditing.originalPayload` setting it to the `message.payload`
    1. Convert java object to JSON
-   
+
+![swt_CommonServicesWrapper.commonServicesWrapper.RemovePayloadContent] [g105]
+
 ####Call Exception API
     callExceptionAPI
-   1. 
+   1. Post to /Exception via `CommonDBInsert_HTTP_Request_Configuration`
+   1. Convert byte array to string, log payload as INFO
+
+![swt_CommonServicesWrapper.commonServicesWrapper.callExceptionAPI] [g106]
 
 ####Remove Exception Payload Stack Trace
     RemoveExcpPayloadStackTrace
-   1. a
+   1. Run string to byte array
+   1. Hash the payload JSON using java.util.HashMap
+   1. Build an expression for `message.payload.Auditing.originalPayload` setting it to the `message.payload`
+   1. Convert java object to JSON
+   1. Send exception metadata (payload) to console as ERROR
 
-   ![swt_CommonServicesWrapper.commonServicesWrapper.commonServicesAuditFlow] [g101]
+![swt_CommonServicesWrapper.commonServicesWrapper.RemoveExcpPayloadStackTrace] [g107]
    
-   [g101]: ./assets/swt_CommonServicesWrapper.commonServicesWrapper.commonServicesAuditFlow.png
-   
+[g101]: ./assets/swt_CommonServicesWrapper.commonServicesWrapper.commonServicesAuditFlow.png
+[g102]: ./assets/swt_CommonServicesWrapper.commonServicesWrapper.globalCommonExceptionStrategy.png
+[g103]: ./assets/swt_CommonServicesWrapper.commonServicesWrapper.commonServicesExceptionFlow.png
+[g104]: ./assets/swt_CommonServicesWrapper.commonServicesWrapper.NotificationSub_Flow.png
+[g105]: ./assets/swt_CommonServicesWrapper.commonServicesWrapper.RemovePayloadContent.png
+[g106]: ./assets/swt_CommonServicesWrapper.commonServicesWrapper.callExceptionAPI.png
+[g107]: ./assets/swt_CommonServicesWrapper.commonServicesWrapper.RemoveExcpPayloadStackTrace
