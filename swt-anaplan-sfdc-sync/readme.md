@@ -114,7 +114,7 @@
       * `SourceSystem` <- `p('source')`
    1.  Convert to string and Log as INFO
 
-![swt-anaplan-sfdc-sync supporting_flow loggingSupportFlow] (/assets/swt-anaplan-sfdc-sync supporting_flow loggingSupportFlow.png)
+![swt-anaplan-sfdc-sync supporting_flow loggingSupportFlow] [g001]
 
 ####GlobalExceptionStrategy
 #####*Transformation Exception*
@@ -199,3 +199,4 @@
    
 
 [1]: https://github.com/lcgillies/TestGitHubPages/edit/dev/CommonServicesWrapper/
+[g001]:  https://github.com/lcgillies/TestGitHubPages/edit/dev/swt-anaplan-sfdc-sync/assets/swt-anaplan-sfdc-sync supporting_flow loggingSupportFlow.png)
