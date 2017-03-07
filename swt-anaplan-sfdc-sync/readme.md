@@ -47,6 +47,8 @@
    * Accounts  
    * Sales coverage segments  
 
+![swt-anaplan-sfdc-sync.swt-anaplan-sfdc-sync.swt-anaplan-sfdc-account-salescoveragesegment-sync.processAccountandSalescoveragesegmentsync] [g101]
+
    ####Accounts
    1.   Convert JSON to a POJO
    1.   *Update* the following Anaplan model values to the Saleforce `Accounts` object based on ID:
@@ -60,7 +62,9 @@
    1.   Set **payload** to any failed records
    1.   Build record count message as a variable
    1.   Perform <A href="#FailedRecordsFlow">Failed Records</A> flow
-  
+
+![swt-anaplan-sfdc-sync.swt-anaplan-sfdc-sync.swt-anaplan-sfdc-account-salescoveragesegment-sync.processAccountBatchProcessing] [g102]
+
    ####Sales coverage segments
    1.   Convert JSON to a POJO
    1.   *Upsert* the following Anaplan model values to the Salesforce `SWT_Sales_Coverage_Segment__c` object based on `salesSegmentId`:
@@ -74,6 +78,7 @@
    1.   Build record count message as a variable
    1.   Perform <A href="#FailedRecordsFlow">Failed Records</A> flow
 
+![swt-anaplan-sfdc-sync.swt-anaplan-sfdc-sync.swt-anaplan-sfdc-account-salescoveragesegment-sync.processSalescoveragesegmentBatchProcessing] [g103]  
   
 ##Process sales territory from Anaplan to Salesforce
     swt-anaplan-sfdc-salesterritory-sync
@@ -97,6 +102,8 @@
 1. Build record count message as a variable
 1. Perform <A href="#FailedRecordsFlow">Failed Records</A> flow
 
+![swt-anaplan-sfdc-sync.swt-anaplan-sfdc-sync.swt-anaplan-sfdc-salesterritory-sync.processSalesterritorysyncflow] [g104]
+![swt-anaplan-sfdc-sync.swt-anaplan-sfdc-sync.swt-anaplan-sfdc-salesterritory-sync.processSalesterritorySyncBatchProcessing] [g105] 
 
 ##Shared processes
     supporting_flow
@@ -214,3 +221,8 @@
 [g004]: ./assets/swt-anaplan-sfdc-sync.supporting_flow.RealTimeEmailFlow.png
 [g005]: ./assets/swt-anaplan-sfdc-sync.supporting_flow.BatchEmailFlow.png
 [g006]: ./assets/swt-anaplan-sfdc-sync.supporting_flow.sfdcFailuresupport_Subflow.png
+[g101]: ./assets/swt-anaplan-sfdc-sync.swt-anaplan-sfdc-sync.swt-anaplan-sfdc-account-salescoveragesegment-sync.processAccountandSalescoveragesegmentsync.png
+[g102]: ./assets/swt-anaplan-sfdc-sync.swt-anaplan-sfdc-sync.swt-anaplan-sfdc-account-salescoveragesegment-sync.processAccountBatchProcessing.png
+[g103]: ./assets/swt-anaplan-sfdc-sync.swt-anaplan-sfdc-sync.swt-anaplan-sfdc-account-salescoveragesegment-sync.processSalescoveragesegmentBatchProcessing.png
+[g104]: ./assets/swt-anaplan-sfdc-sync.swt-anaplan-sfdc-sync.swt-anaplan-sfdc-salesterritory-sync.processSalesterritorysyncflow.png
+[g105]: ./assets/swt-anaplan-sfdc-sync.swt-anaplan-sfdc-sync.swt-anaplan-sfdc-salesterritory-sync.processSalesterritorySyncBatchProcessing.png
