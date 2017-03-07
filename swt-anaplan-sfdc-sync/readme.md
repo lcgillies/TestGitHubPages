@@ -3,7 +3,7 @@
     swt-anaplan-sfdc-sync
    
 ##Flows Outline
-<font size="4">
+<font size="2">
 * global.xml - contains environment properties (anaplan cert, sfdc oauth, smtp connector)
 
 * swt-anaplan-sfdc-account-salescoveragesegment-sync.xml - process account and sales coverage segment changes
