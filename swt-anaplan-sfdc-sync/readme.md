@@ -115,6 +115,7 @@
    1.  Convert to string and Log as INFO
 
 ####GlobalExceptionStrategy
+
    #####Transformation Exception
    1. Add following properties to message:
       * `EPoint` <- `exception.message`
