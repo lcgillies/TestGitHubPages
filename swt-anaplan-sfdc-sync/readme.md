@@ -221,8 +221,8 @@
 [g004]: ./assets/swt-anaplan-sfdc-sync.supporting_flow.RealTimeEmailFlow.png
 [g005]: ./assets/swt-anaplan-sfdc-sync.supporting_flow.BatchEmailFlow.png
 [g006]: ./assets/swt-anaplan-sfdc-sync.supporting_flow.sfdcFailuresupport_Subflow.png
-[g101]: ./assets/swt-anaplan-sfdc-sync.swt-anaplan-sfdc-sync.swt-anaplan-sfdc-account-salescoveragesegment-sync.processAccountandSalescoveragesegmentsync.png
-[g102]: ./assets/swt-anaplan-sfdc-sync.swt-anaplan-sfdc-sync.swt-anaplan-sfdc-account-salescoveragesegment-sync.processAccountBatchProcessing.png
-[g103]: ./assets/swt-anaplan-sfdc-sync.swt-anaplan-sfdc-sync.swt-anaplan-sfdc-account-salescoveragesegment-sync.processSalescoveragesegmentBatchProcessing.png
-[g104]: ./assets/swt-anaplan-sfdc-sync.swt-anaplan-sfdc-sync.swt-anaplan-sfdc-salesterritory-sync.processSalesterritorysyncflow.png
-[g105]: ./assets/swt-anaplan-sfdc-sync.swt-anaplan-sfdc-sync.swt-anaplan-sfdc-salesterritory-sync.processSalesterritorySyncBatchProcessing.png
+[g101]: ./assets/swt-anaplan-sfdc-sync.swt-anaplan-sfdc-account-salescoveragesegment-sync.processAccountandSalescoveragesegmentsync.png
+[g102]: ./assets/swt-anaplan-sfdc-sync.swt-anaplan-sfdc-account-salescoveragesegment-sync.processAccountBatchProcessing.png
+[g103]: ./assets/swt-anaplan-sfdc-sync.swt-anaplan-sfdc-account-salescoveragesegment-sync.processSalescoveragesegmentBatchProcessing.png
+[g104]: ./assets/swt-anaplan-sfdc-sync.swt-anaplan-sfdc-salesterritory-sync.processSalesterritorysyncflow.png
+[g105]: ./assets/swt-anaplan-sfdc-sync.swt-anaplan-sfdc-salesterritory-sync.processSalesterritorySyncBatchProcessing.png
