@@ -161,7 +161,9 @@
       * `TargetSystem` <- `p('target')`
       * `SourceSystem` <- `p('source')`
    1.  Put message into <A href="#RealTimeEmailFlow">RealTimeEmailFlow</A>         
-   
+
+![swt-anaplan-sfdc-sync.supporting_flow.GlobalExceptionStrategy] [g002]
+
 <A name="FailedRecordsFlow">
 ####FailedRecordsFlow</A>
    1. Test for payload success---if false, log the errors and queue a failure to Failure_Out
@@ -175,17 +177,23 @@
       * `ApplicationName` <- `p('name')`
       * `TargetSystem` <- `p('target')`
       * `SourceSystem` <- `p('source')`
-      
+
+![swt-anaplan-sfdc-sync.supporting_flow.FailedRecordsFlow] [g003]
+
 <A name="RealTimeEmailFlow">
 ####RealTimeEmailFlow</A>
    1. Log the payload as a POJO string as INFO
-   
+
+![swt-anaplan-sfdc-sync.supporting_flow.RealTimeEmailFlow] [g004]
+
 <A name="BatchEmailFlow">
 ####BatchEmailFlow</A>
    1. Log the payload as a message string as INFO
    1. Log the payload as a POJO string as INFO
    1. Log the message "Mail Sent" as INFO
-   
+
+![swt-anaplan-sfdc-sync.supporting_flow.BatchEmailFlow] [g005]
+
 <A name="sfdcFailuresupport_Subflow">
 ####sfdcFailuresupport_Subflow (For Each)</A?
    1. If payload success if "false", log payload errors as INFO
@@ -196,9 +204,13 @@
       * `statusCode` <- `flowVars.sfStatus`
    1. Log payload as INFO
    1. Send flow to internal VM endpoint "Failure_Out"
-   
-https://github.com/lcgillies/TestGitHubPages/blob/dev/swt-anaplan-sfdc-sync/assets/swt-anaplan-sfdc-sync.
+
+![swt-anaplan-sfdc-sync.supporting_flow.sfdcFailuresupport_Subflow] [g006]
+
 [1]: https://github.com/lcgillies/TestGitHubPages/blob/dev/CommonServicesWrapper/
-[g000]: https://github.com/lcgillies/TestGitHubPages/blob/dev/swt-anaplan-sfdc-sync/assets/swt-anaplan-sfdc-sync.supporting_flow.loggingSupportFlow.png
 [g001]: ./assets/swt-anaplan-sfdc-sync.supporting_flow.loggingSupportFlow.png
-[g002]: https://github.com/lcgillies/TestGitHubPages/blob/dev/swt-anaplan-sfdc-sync/assets/swt-anaplan-sfdc-sync.swt-anaplan-sfdc-sync.supporting_flow.GlobalExceptionStrategy
+[g002]: ./assets/swt-anaplan-sfdc-sync.swt-anaplan-sfdc-sync.supporting_flow.GlobalExceptionStrategy.png
+[g003]: ./assets/swt-anaplan-sfdc-sync.supporting_flow.FailedRecordsFlow.png
+[g004]: ./assets/swt-anaplan-sfdc-sync.supporting_flow.RealTimeEmailFlow.png
+[g005]: ./assets/swt-anaplan-sfdc-sync.supporting_flow.BatchEmailFlow.png
+[g006]: ./assets/swt-anaplan-sfdc-sync.supporting_flow.sfdcFailuresupport_Subflow.png
