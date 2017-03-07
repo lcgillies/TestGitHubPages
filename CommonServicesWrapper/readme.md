@@ -54,7 +54,8 @@
    1. Test message.outboundProperties.isAuditPayldReq for "N", post to /Audit via `CommonDBInsert_HTTP_Request_Configuration`
    1. Perform <A href="#RemovePayloadContent">RemovePayloadContent</A> flow
    
-####Global Common Exception Strategy
+<A name="#GlobalCommonExceptionStrategy">
+####Global Common Exception Strategy</A>
     globalCommonExceptionStrategy
    1. Set the following in the message header:
       * `transactionID` <- `message.id`
@@ -92,12 +93,12 @@
       * errorMessageDescription
       * info
       * exceptionTreeList
-    1. Perform <A href="#callExceptionAPI">callExceptionAPI</A> flow (async)
-    1. Perform <A href="#RemoveExcpPayloadStackTrace">RemoveExcpPayloadStackTrace</A> flow (async)
+   1. Perform <A href="#callExceptionAPI">callExceptionAPI</A> flow (async)
+   1. Perform <A href="#RemoveExcpPayloadStackTrace">RemoveExcpPayloadStackTrace</A> flow (async)
    
 ####Common Services Exception Flow
     commonServicesExceptionFlow
-   1. 
+   1. Same as <A href="#GlobalCommonExceptionStrategy">Global Common Exception Strategy</A> above, except with a Source
    
 ####Notification SubFlow
     NotificationSub_Flow
