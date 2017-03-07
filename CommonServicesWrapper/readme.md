@@ -22,7 +22,7 @@
    * RemoveExcpPayloadStackTrace
    
    ##Common Audit Flow
-    commonServicesAuditFlow
+   commonServicesAuditFlow
        
    1. Log "Audit Invoked" message as INFO
    1. Set the following in the message header:
@@ -53,6 +53,18 @@
 	 * `originalPayload` <- `flowVars.originalPayload`
    1. Test message.outboundProperties.isAuditPayldReq for "N", post to /Audit via `CommonDBInsert_HTTP_Request_Configuration`
    1. Perform <A href="#RemovePayloadContent">RemovePayloadContent</A> flow
+   
+   ##Global Common Exception Strategy
+       globalCommonExceptionStrategy
+   1. a
+   
+   ##Common Services Exception Flow
+       commonServicesExceptionFlow
+   1. a
+   
+   ##Notification SubFlow
+       NotificationSub_Flow
+   1. a
    
    ![swt_CommonServicesWrapper.commonServicesWrapper.commonServicesAuditFlow] [g101]
    
