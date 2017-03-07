@@ -21,15 +21,15 @@
    
    * RemoveExcpPayloadStackTrace
    
-   ##Common Audit Flow
+####Common Audit Flow
    commonServicesAuditFlow
        
    1. Log "Audit Invoked" message as INFO
    1. Set the following in the message header:
-      * transactionID <- message.id
-      * timeStamp <- current date/time
-      * serverName <- server.host
-      * userName <- server.userName
+      * `transactionID` <- `message.id`
+      * `timeStamp` <- `current date/time`
+      * `serverName` <- `server.host`
+      * `userName` <- `server.userName`
    1. Test message.outboundProperties.isAuditReq for "Y", log outboundProperties.test as INFO if not
    1. If audit is required
       1. Create audit message:  
@@ -54,18 +54,61 @@
    1. Test message.outboundProperties.isAuditPayldReq for "N", post to /Audit via `CommonDBInsert_HTTP_Request_Configuration`
    1. Perform <A href="#RemovePayloadContent">RemovePayloadContent</A> flow
    
-   ##Global Common Exception Strategy
-       globalCommonExceptionStrategy
+####Global Common Exception Strategy
+    globalCommonExceptionStrategy
+   1. Set the following in the message header:
+      * `transactionID` <- `message.id`
+      * `timeStamp` <- `current date/time`
+      * `errorMessageDescription` <- `groovey:exception.getMessage()`
+      * `serverName` <- `server.host`
+      * `userName` <- `server.userName`
+   1. Get flow name via Java utilities
+   1. Get exception properties via Java utilities
+   1. Create the exception message:
+      *Header:*
+      * `actionName` <- "Error"
+      * `transactionId` <- `outboundProperties.transactionId`
+      * `timeStamp` <- `outboundProperties.timeStamp`
+      * `sourceSystemName` <- `p('sourceSystemName')`
+      * `targetSystemName` <- `p('targetSystemName')`
+      * `serviceName` <- `p('serviceName')`
+      * `flowName` <- `outboundProperties.flowName`
+      * `protocol` <- `outboundProperties.protocol`
+      * `format` <- `outboundProperties.format`
+      * `userName` <- `outboundProperties.userName`
+      * `serverName` <- `outboundProperties.serverName`
+      * `recordId` <- "12"
+      * `batchId` <- "55555"
+      * `businessId` <- "OrderId"
+	*Error:*
+      * `exceptionCode` <- `outboundProperties.exceptionCode`
+      * `typeOfError` <- `outboundProperties.typeOfError`
+      * `errorMessageDescription` <- `outboundProperties.errorMessageDescription`
+      * `info` <- `outboundProperties.info`
+      * `exceptionTreeList` <- `outboundProperties.exceptionTreeList`
+      * `exceptionRecovery` <- `outboundProperties.exceptionRecovery`
+      * `originalayload` <- `flowVars.originalPayload`
+   
+####Common Services Exception Flow
+    commonServicesExceptionFlow
    1. a
    
-   ##Common Services Exception Flow
-       commonServicesExceptionFlow
+####Notification SubFlow
+    NotificationSub_Flow
    1. a
-   
-   ##Notification SubFlow
-       NotificationSub_Flow
+
+####Remove Payload Contnet
+    RemovePayloadContent
    1. a
-   
+
+####Call Exception API
+    callExceptionAPI
+   1. a
+
+####Remove Exception Payload Stack Trace
+    RemoveExcpPayloadStackTrace
+   1. a
+
    ![swt_CommonServicesWrapper.commonServicesWrapper.commonServicesAuditFlow] [g101]
    
    [g101]: ./assets/swt_CommonServicesWrapper.commonServicesWrapper.commonServicesAuditFlow.png
