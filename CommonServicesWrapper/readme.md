@@ -64,7 +64,7 @@
       * `userName` <- `server.userName`
    1. Get flow name via Java utilities
    1. Get exception properties via Java utilities
-   1. Create the exception message:
+   1. Create the exception message:  
       *Header:*
       * `actionName` <- "Error"
       * `transactionId` <- `outboundProperties.transactionId`
@@ -79,7 +79,7 @@
       * `serverName` <- `outboundProperties.serverName`
       * `recordId` <- "12"
       * `batchId` <- "55555"
-      * `businessId` <- "OrderId"
+      * `businessId` <- "OrderId"  
 	*Error:*
       * `exceptionCode` <- `outboundProperties.exceptionCode`
       * `typeOfError` <- `outboundProperties.typeOfError`
@@ -88,10 +88,16 @@
       * `exceptionTreeList` <- `outboundProperties.exceptionTreeList`
       * `exceptionRecovery` <- `outboundProperties.exceptionRecovery`
       * `originalayload` <- `flowVars.originalPayload`
+   1. Convert to string and delete unwanted properties:
+      * errorMessageDescription
+      * info
+      * exceptionTreeList
+    1. Perform <A href="#callExceptionAPI">callExceptionAPI</A> flow (async)
+    1. Perform <A href="#RemoveExcpPayloadStackTrace">RemoveExcpPayloadStackTrace</A> flow (async)
    
 ####Common Services Exception Flow
     commonServicesExceptionFlow
-   1. a
+   1. 
    
 ####Notification SubFlow
     NotificationSub_Flow
