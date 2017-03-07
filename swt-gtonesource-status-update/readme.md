@@ -4,4 +4,23 @@
 
 ##Flows Outline
 
-* gtonesrcsoasvcFlow
+* <A href="#gtonesrcsoapsvcFlow">gtonesrcsoapsvcFlow</A> - perform audit flow and recognize target system for update (SFDC/APPTUS/ZUORA)
+
+* updateAccountStatusToSFDC
+
+* updateQuoteStatusToApttus
+
+* ResponseToGTforAccountOrQuote
+
+* updateInvoiceStatusToZuora
+
+* sendingGTResponseForInvoice
+
+* amendmentCreation
+
+* settingInterfaceProperties
+
+* sendingErrorEmail
+
+<A name="gtonesrcsoapsvcFlow">
+##Start GTOneSource SOAP Service Flow</A>
