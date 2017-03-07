@@ -130,7 +130,7 @@
       * `SourceSystem` <- `p('source')`
    1.  Put message into <A href="#RealTimeEmailFlow">RealTimeEmailFlow</A>
    
-   #####Connection Exception Strategy
+#####Connection Exception Strategy
    1. Add following properties to message:
       * `EPoint` <- `exception.message`
       * `time` <- `server.dateTime`
@@ -145,7 +145,7 @@
       * `SourceSystem` <- `p('source')`
    1.  Put message into <A href="#RealTimeEmailFlow">RealTimeEmailFlow</A>
 
-   #####InternalProcessingExceptionStrategy
+#####InternalProcessingExceptionStrategy
    1. Add following properties to message:
       * `EPoint` <- `exception.message`
       * `time` <- `server.dateTime`
@@ -162,9 +162,9 @@
    
 <A name="FailedRecordsFlow">
 ####FailedRecordsFlow</A>
-   1.   Test for payload success---if false, log the errors and queue a failure to Failure_Out
-   1.   Pick up Failure_Out queue, test for records
-   1.   If Failure_Out records exist, map the following values to a CSV and batch email 
+   1. Test for payload success---if false, log the errors and queue a failure to Failure_Out
+   1. Pick up Failure_Out queue, test for records
+   1. If Failure_Out records exist, map the following values to a CSV and batch email 
       * `RecordId` <- `$.RecordId`
       * `Exception` <- `$.message`
       * `StatusCode`<- `$.statusCode`
@@ -173,6 +173,27 @@
       * `ApplicationName` <- `p('name')`
       * `TargetSystem` <- `p('target')`
       * `SourceSystem` <- `p('source')`
-  
+      
+<A name="RealTimeEmailFlow">
+####RealTimeEmailFlow</A>
+   1. Log the payload as a POJO string as INFO
+   
+<A name="BatchEmailFlow">
+####BatchEmailFlow</A>
+   1. Log the payload as a message string as INFO
+   1. Log the payload as a POJO string as INFO
+   1. Log the message "Mail Sent" as INFO
+   
+<A name="sfdcFailuresupport_Subflow">
+####sfdcFailuresupport_Subflow (For Each)</A?
+   1. If payload success if "false", log payload errors as INFO
+   1. Set flowvars for payload error message and payload error status
+   1. Capture the following values for logging:
+      * `RecordId` <- `payload.id`
+      * `message` <- `flowVars.sfmessage`
+      * `statusCode` <- `flowVars.sfStatus`
+   1. Log payload as INFO
+   1. Send flow to internal VM endpoint "Failure_Out"
+   
 
 [1]: https://github.com/lcgillies/TestGitHubPages/edit/dev/CommonServicesWrapper/
