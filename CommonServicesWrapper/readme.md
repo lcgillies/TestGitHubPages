@@ -114,11 +114,13 @@
 
 ####Remove Payload Contnet
     RemovePayloadContent
-   1. a
-
+   1. Hash the payload JSON using java.util.HashMap
+   1. Build an expression for `message.payload.Auditing.originalPayload` setting it to the `message.payload`
+   1. Convert java object to JSON
+   
 ####Call Exception API
     callExceptionAPI
-   1. a
+   1. 
 
 ####Remove Exception Payload Stack Trace
     RemoveExcpPayloadStackTrace
