@@ -3,7 +3,7 @@
     swt-anaplan-sfdc-sync
    
 ##Flows Outline
-
+<font size="4">
 * global.xml - contains environment properties (anaplan cert, sfdc oauth, smtp connector)
 
 * swt-anaplan-sfdc-account-salescoveragesegment-sync.xml - process account and sales coverage segment changes
@@ -35,7 +35,7 @@
    * RealtimeEmailFlow
    * BatchEmailFlow
    * sfdcFailuresupport_Subflow
-
+</font>
 ##Process account and sales coverage segments from Anaplan to Salesforce
     swt-anaplan-sfdc-account-salescoveragesegment-sync  
   
