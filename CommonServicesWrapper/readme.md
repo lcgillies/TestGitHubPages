@@ -53,7 +53,7 @@
 	 * `transactionLevel` <- `outboundProperties.transactionLevel`
 	 * `originalPayload` <- `flowVars.originalPayload`
    1. Test message.outboundProperties.isAuditPayldReq for "N", post to /Audit via `CommonDBInsert_HTTP_Request_Configuration`
-   1. Perform <A href="RemovePayloadContent">RemovePayloadContent</A> flow
+   1. Perform <A href="#RemovePayloadContent">RemovePayloadContent</A> flow
 
 ![swt_CommonServicesWrapper.commonServicesWrapper.commonServicesAuditFlow] [g101]
 
@@ -96,15 +96,15 @@
       * errorMessageDescription
       * info
       * exceptionTreeList
-   1. Perform <A href="callExceptionAPI">callExceptionAPI</A> flow (async)
-   1. Perform <A href="RemoveExcpPayloadStackTrace">RemoveExcpPayloadStackTrace</A> flow (async)
+   1. Perform <A href="#callExceptionAPI">callExceptionAPI</A> flow (async)
+   1. Perform <A href="#RemoveExcpPayloadStackTrace">RemoveExcpPayloadStackTrace</A> flow (async)
 
 ![swt_CommonServicesWrapper.commonServicesWrapper.globalCommonExceptionStrategy] [g102]
 
 <A name="commonServicesExceptionFlow">
 ####Common Services Exception Flow</A>
     commonServicesExceptionFlow
-   1. Same as <A href="GlobalCommonExceptionStrategy">Global Common Exception Strategy</A> above, except with a Source
+   1. Same as <A href="#GlobalCommonExceptionStrategy">Global Common Exception Strategy</A> above, except with a Source
 
 ![swt_CommonServicesWrapper.commonServicesWrapper.commonServicesExceptionFlow] [g103]
 
