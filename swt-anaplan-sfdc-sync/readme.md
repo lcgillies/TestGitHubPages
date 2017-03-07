@@ -130,7 +130,7 @@
       * `SourceSystem` <- `p('source')`
    1.  Put message into <A href="#RealTimeEmailFlow">RealTimeEmailFlow</A>
    
-#####Connection Exception Strategy
+#####*Connection Exception Strategy*
    1. Add following properties to message:
       * `EPoint` <- `exception.message`
       * `time` <- `server.dateTime`
@@ -145,7 +145,7 @@
       * `SourceSystem` <- `p('source')`
    1.  Put message into <A href="#RealTimeEmailFlow">RealTimeEmailFlow</A>
 
-#####InternalProcessingExceptionStrategy
+#####*InternalProcessingExceptionStrategy*
    1. Add following properties to message:
       * `EPoint` <- `exception.message`
       * `time` <- `server.dateTime`
