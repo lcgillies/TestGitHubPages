@@ -24,4 +24,32 @@
    ##Common Audit Flow
        commonServicesAuditFlow
        
-   1. 
+   1. Log "Audit Invoked" message as INFO
+   1. Set the following in the message header:
+      * transactionID <- message.id
+      * timeStamp <- current date/time
+      * serverName <- server.host
+      * userName <- server.userName
+   1. Test message.outboundProperties.isAuditReq for "Y", log outboundProperties.test as INFO if not
+   1. If audit is required
+      1. Create audit message:
+         * Header: {
+		actionName: "Audit",
+		transactionId: outboundProperties.transactionId,
+		timeStamp: outboundProperties.timeStamp,
+		sourceSystemName: outboundProperties.sourceSystemName,								
+	    targetSystemName: outboundProperties.targetSystemName,
+	    serviceName: outboundProperties.serviceName,  
+	    flowName: outboundProperties.flowName,
+	    protocol: outboundProperties.protocol,
+	    format: outboundProperties.format,					
+	    userName: outboundProperties.userName,
+	    serverName: outboundProperties.serverName,								
+	    recordId: "12",
+	    batchId: "55555",  						
+	    businessId: "OrderId"
+		},
+	Auditing: {
+		transactionLevel: outboundProperties.transactionLevel,
+	    originalPayload: flowVars.originalPayload
+	    
