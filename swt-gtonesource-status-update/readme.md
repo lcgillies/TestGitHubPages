@@ -89,6 +89,8 @@
    * `serviceName` <- `${serviceName}`
    * `isAuditReq` <- `${isAuditReq}`
    * `isAuditPayldReq` <- `${isAuditPayldReq}`
+   1. Perform [commonServicesAuditFlow] [1]
+   1. Perform <A href="#ResponseToGTforAccountOrQuote">ResponseToGTforAccountOrQuote</A> flow  
    otherwise:
    * fjdlsafj
    
