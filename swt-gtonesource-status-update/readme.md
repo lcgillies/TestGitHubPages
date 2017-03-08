@@ -24,3 +24,16 @@
 
 <A name="gtonesrcsoapsvcFlow">
 ##Start GTOneSource SOAP Service Flow</A>
+1. Listen via HTTP on `/gtonesrc`
+1. Connect message to proxy service for GTOneSource using `GTONESRCService`
+1. Convert the DOM to XML
+1. Set interface properties for request:
+   * `transactionLevel <- "Start of the flow"
+   * `flowName` <- `${flowName}`
+   * `protocol` <- "HTTP"
+   * `format` <- "SOAP"
+   * `sourceSystemName` <- `${sourceSystemName}`
+   * `targetSystemName` <- `${targetSystemName}`
+   * `serviceName` <- `${serviceName}`
+   * `isAuditReq` <- `${isAuditReq}`
+   * `isAuditPayldReq` <- `${isAuditPayldReq}`
