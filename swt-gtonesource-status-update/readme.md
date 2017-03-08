@@ -38,4 +38,7 @@
    * `isAuditReq` <- `${isAuditReq}`
    * `isAuditPayldReq` <- `${isAuditPayldReq}`
 1. Preserve original payload in `originalPayload` flow var
-1. Perform commonServicesAuditFlow
+1. Perform the [Audit flow] [1]
+
+
+[1]: https://github.com/lcgillies/TestGitHubPages/tree/dev/CommonServicesWrapper#common-audit-flow
