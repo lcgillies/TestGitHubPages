@@ -39,13 +39,17 @@
    * `isAuditPayldReq` <- `${isAuditPayldReq}`
 1. Preserve original payload in `originalPayload` flow var
 1. Perform the [Audit flow] [1]
-1. Update the message with values from the namespace (e.g., `http://localhost:9142/gtonesrc/service/1.0`):
+1. Update the payload with values from the namespace (e.g., `http://localhost:9142/gtonesrc/service/1.0`):
    * `systemId` <- `update.systemid`
    * `Id` <- `update.id`
    * `objectType` <- `update.objecttype`
    * `targetSystem` <- `update.targetsystem`
    * `status` <- `update.status`
    * `statusMessage` <- `update.message`
-
+1. Update the flow vars named as on the left side of the previous step with payload values
+1. Based on flow var `targetSystem`, log no message to INFO if not matched or:
+   * "SFDC" - perform flow <A href="#updateAccountStatusToSFDC">updateAccountStatusToSFDC</A>
+   * "APTTUS" - perform flow <A href="#updateQuoteStatusToApttus">updateQuoteStatusToApttus</A>
+   * "ZUORA" - perform flow <A href="#updateInvoiceStatusToZuora">updateInvoiceStatusToZuora</A>
 
 [1]: https://github.com/lcgillies/TestGitHubPages/tree/dev/CommonServicesWrapper#common-audit-flow
