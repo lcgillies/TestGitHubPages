@@ -71,8 +71,8 @@
    * SWT_RPL_Status__c <- 
       * "Hold" if flowVars.status is 'Rejected'
       * "Released" if flowVars.status is 'Verified'
-      * otherwise ''
-   * SWT_RPL_Detail__c <- flowVars.statusMessage when .status is "Rejected", otherwise ''
+      * otherwise nothing
+   * SWT_RPL_Detail__c <- flowVars.statusMessage when .status is "Rejected", otherwise blank
    * SWT_RPL_Last_Sync__c <- current date
 
 
