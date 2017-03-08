@@ -37,3 +37,5 @@
    * `serviceName` <- `${serviceName}`
    * `isAuditReq` <- `${isAuditReq}`
    * `isAuditPayldReq` <- `${isAuditPayldReq}`
+1. Preserve original payload in `originalPayload` flow var
+1. Perform commonServicesAuditFlow
