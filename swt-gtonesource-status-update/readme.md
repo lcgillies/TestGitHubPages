@@ -75,6 +75,22 @@
    * `SWT_RPL_Detail__c` <- `flowVars.statusMessage` when `.status` is "Rejected", otherwise blank
    * `SWT_RPL_Last_Sync__c` <- current date
 1. Update SalesForce `Account` object
+1. Capture SalesForce update status:
+   * `updateStatus` <- `payload[0].success`
+   * `updateMessage` <- `null`   
+   * `updateMessage` <- `payload[0].errors[0].message` if `payload[0].success` is false
+1. if payload[0].success is true:
+   * transactionLevel <- "RPL Status for Account is Updated in Salesforce"
+   * flowName <- ${flowName}
+   * protocol <- "HTTP"
+   * format <- "SOAP"
+   * sourceSystemName <- ${sourceSystemName}
+   * targetSystemName <- ${targetSystemName}
+   * serviceName <- ${serviceName}
+   * isAuditReq <- ${isAuditReq}
+   * isAuditPayldReq <- ${isAuditPayldReq}
+   
+   
 
 
 [1]: https://github.com/lcgillies/TestGitHubPages/tree/dev/CommonServicesWrapper#common-audit-flow
