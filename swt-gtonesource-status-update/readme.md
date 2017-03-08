@@ -54,4 +54,15 @@
 
 ###Error Handling
 
+####Catch Exception Strategy (`java.lang.IllegalStateException`)
+1. Execute flow if there is an exception caused via `java.lang.IllegalStateException`
+1. Perform <A href="commonServicesExceptionFlow">commonServicesExceptionFlow</A> flow (async)
+1. Perform <A href="sendingErrorEmail">sendingErrorEmail</A> flow
+1. Perform <A href="ResponseToGTforAccountOrQuote">ResponseToGTforAccountOrQuote</A> flow
+
+####Catch Exception Strategy
+1. Perform <A href="commonServicesExceptionFlow">commonServicesExceptionFlow</A> flow (async)
+1. Perform <A href="ResponseToGTforAccountOrQuote">ResponseToGTforAccountOrQuote</A> flow
+
+
 [1]: https://github.com/lcgillies/TestGitHubPages/tree/dev/CommonServicesWrapper#common-audit-flow
