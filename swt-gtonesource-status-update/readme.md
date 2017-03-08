@@ -129,9 +129,18 @@
    1. Perform [commonServicesAuditFlow] [1]
    1. Via Groovy, throw an `IllegalStateException` passing `updateMessage` and return the payload  
 
-   
-   
-   
-   
+<A name="ResponseToGTforAccountOrQuote">
+##Send Response to GTOneSource for Acccount or Quote</A>
+1. Transform message from flow variable values:
+   * `objecttype` <- `objectType`
+   * `id` <- `Id`
+   * `status` <- `updateStatus`
+   * `message` <- `updateMessage`
+1. Perform <A href="#settingInterfaceProperties">settingInterfaceProperties</A> flow 
+
+<A name="updateInvoiceStatusToZuora">
+##Update Zuora Invoice Status from GTOneSource</A>
+1. 
+
 
 [1]: https://github.com/lcgillies/TestGitHubPages/tree/dev/CommonServicesWrapper#common-audit-flow
