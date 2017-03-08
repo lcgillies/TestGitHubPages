@@ -6,13 +6,13 @@
 
 * <A href="#gtonesrcsoapsvcFlow">gtonesrcsoapsvcFlow</A> - perform audit flow and recognize target system for update (SFDC/APPTUS/ZUORA)
 
-* <A href="#updateAccountStatusToSFDC">updateAccountStatusToSFDC</A> -
+* <A href="#updateAccountStatusToSFDC">updateAccountStatusToSFDC</A> - update global trade account status from GTOneSource to SFDC
 
-* <A href="#updateQuoteStatusToApttus">updateQuoteStatusToApttus</A> -
+* <A href="#updateQuoteStatusToApttus">updateQuoteStatusToApttus</A> - update global trade quote status from GTOneSource to Apttus
 
 * <A href="#ResponseToGTforAccountOrQuote">ResponseToGTforAccountOrQuote</A> -
 
-* <A href="#updateInvoiceStatusToZuora">updateInvoiceStatusToZuora</A>
+* <A href="#updateInvoiceStatusToZuora">updateInvoiceStatusToZuora</A> - update global trade invoice status from GTOneSource to Zuora
 
 * <A href="#sendingGTResponseForInvoice">sendingGTResponseForInvoice</A>
 
@@ -66,16 +66,16 @@
 
 <A name="updateAccountStatusToSFDC">
 ##Update SFDC Account Status from GTOneSource</A>
-1. Transform message:
-   * `Id` <- `flowVars.systemID`
+1. Transform message from flow variable values:
+   * `Id` <- `systemID`
    * `SWT_RPL_Status__c` <- 
-      * "Hold" if flowVars.status is 'Rejected'
-      * "Released" if flowVars.status is 'Verified'
+      * "Hold" if status is 'Rejected'
+      * "Released" if status is 'Verified'
       * otherwise nothing
-   * `SWT_RPL_Detail__c` <- `flowVars.statusMessage` when `.status` is "Rejected", otherwise blank
+   * `SWT_RPL_Detail__c` <- `statusMessage` when `status` is "Rejected", otherwise blank
    * `SWT_RPL_Last_Sync__c` <- current date
 1. Update SalesForce `Account` object
-1. Capture SalesForce update status:
+1. Capture SalesForce update status from payload:
    * `updateStatus` <- `payload[0].success`
    * `updateMessage` <- `null`   
    * `updateMessage` <- `payload[0].errors[0].message` if `payload[0].success` is false
@@ -94,12 +94,44 @@
 *otherwise, set these message properties:*
    * `transactionLevel` <- "Failed to update RPL Status for Account in Salesforce"
    * ...others same as above
-   1. Perform [commonServicesAuditFlow] [1]
-   1. Perform <A href="#ResponseToGTforAccountOrQuote">ResponseToGTforAccountOrQuote</A> flow  
+   1. Perform [commonServicesAuditFlow] [1] (async)
+   1. Via Groovy, throw an `IllegalStateException` passing `updateMessage` and return the payload
 
 <A name="updateQuoteStatusToApttus">
 ##Update Apttus Quote Status from GTOneSource</A>  
-1. 
+1. Transform message from flow variable values:
+   * `Id` <- `systemID`
+   * `SWT_GTS_Status__c` <- 
+      * "Hold" if status is 'Rejected'
+      * "Released" if status is 'Verified'
+      * otherwise nothing
+   * `SWT_GTS_Check_Failure_Reason__c` <- `statusMessage` when `status` is "Rejected", otherwise blank
+1. Update Apttus `Apttus_Proposal_Propsal__c` object
+1. Capture Apttus update status from payload:
+   * `updateStatus` <- `payload[0].success`
+   * `updateMessage` <- `null`   
+   * `updateMessage` <- `payload[0].errors[0].message` if `payload[0].success` is false
+1. if payload[0].success is true, set these message properties:
+   * `transactionLevel` <- "Quote Status Updated in Apttus"
+   * `flowName` <- `${flowName}`
+   * `protocol` <- "HTTP"
+   * `format` <- "SOAP"
+   * `sourceSystemName` <- `${sourceSystemName}`
+   * `targetSystemName` <- `${targetSystemName}`
+   * `serviceName` <- `${serviceName}`
+   * `isAuditReq` <- `${isAuditReq}`
+   * `isAuditPayldReq` <- `${isAuditPayldReq}`
+   1. Perform [commonServicesAuditFlow] [1] (async)
+   1. Perform <A href="#ResponseToGTforAccountOrQuote">ResponseToGTforAccountOrQuote</A> flow  
+*otherwise, set these message properties:*
+   * `transactionLevel` <- "Failed to update RPL Status for Account in Salesforce"
+   * ...others same as above
+   1. Perform [commonServicesAuditFlow] [1]
+   1. Via Groovy, throw an `IllegalStateException` passing `updateMessage` and return the payload  
 
+   
+   
+   
+   
 
 [1]: https://github.com/lcgillies/TestGitHubPages/tree/dev/CommonServicesWrapper#common-audit-flow
