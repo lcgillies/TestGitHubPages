@@ -79,7 +79,7 @@
    * `updateStatus` <- `payload[0].success`
    * `updateMessage` <- `null`   
    * `updateMessage` <- `payload[0].errors[0].message` if `payload[0].success` is false
-1. if payload[0].success is true:
+1. if payload[0].success is true, set these message properties:
    * `transactionLevel` <- "RPL Status for Account is Updated in Salesforce"
    * `flowName` <- `${flowName}`
    * `protocol` <- "HTTP"
@@ -91,8 +91,11 @@
    * `isAuditPayldReq` <- `${isAuditPayldReq}`
    1. Perform [commonServicesAuditFlow] [1]
    1. Perform <A href="#ResponseToGTforAccountOrQuote">ResponseToGTforAccountOrQuote</A> flow  
-   otherwise:
-   * fjdlsafj
+*otherwise, set these message properties:*
+   * `transactionLevel` <- "Failed to update RPL Status for Account in Salesforce"
+   * ...others same as above
+   1. Perform [commonServicesAuditFlow] [1]
+   1. Perform <A href="#ResponseToGTforAccountOrQuote">ResponseToGTforAccountOrQuote</A> flow  
    
 
 
