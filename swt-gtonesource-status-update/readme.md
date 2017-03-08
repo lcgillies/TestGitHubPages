@@ -6,7 +6,7 @@
 
 * <A href="#gtonesrcsoapsvcFlow">gtonesrcsoapsvcFlow</A> - perform audit flow and recognize target system for update (SFDC/APPTUS/ZUORA)
 
-* <A href="#updateAccountStatusToSFDC>updateAccountStatusToSFDC</A> - 
+* <A href="#updateAccountStatusToSFDC>updateAccountStatusToSFDC</A> -
 
 * <A href="#updateQuoteStatusToApttus>updateQuoteStatusToApttus</A> -
 
