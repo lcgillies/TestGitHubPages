@@ -96,7 +96,10 @@
    * ...others same as above
    1. Perform [commonServicesAuditFlow] [1]
    1. Perform <A href="#ResponseToGTforAccountOrQuote">ResponseToGTforAccountOrQuote</A> flow  
-   
+
+<A name="updateQuoteStatusToApttus">
+##Update Apttus Quote Status from GTOneSource</A>  
+1. 
 
 
 [1]: https://github.com/lcgillies/TestGitHubPages/tree/dev/CommonServicesWrapper#common-audit-flow
