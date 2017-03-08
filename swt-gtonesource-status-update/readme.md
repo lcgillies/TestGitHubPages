@@ -140,7 +140,11 @@
 
 <A name="updateInvoiceStatusToZuora">
 ##Update Zuora Invoice Status from GTOneSource</A>
-1. 
+*Output:* application/xml
+*Namespace:* http://api.zuora.com
+*Namespace:* http://object.api.zuora.com
+1. Transform message from flow variable values
+
 
 
 [1]: https://github.com/lcgillies/TestGitHubPages/tree/dev/CommonServicesWrapper#common-audit-flow
