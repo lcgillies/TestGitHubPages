@@ -67,13 +67,14 @@
 <A name="updateAccountStatusToSFDC">
 ##Update SFDC Account Status from GTOneSource</A>
 1. Transform message:
-   * Id <- flowVars.systemID
-   * SWT_RPL_Status__c <- 
+   * `Id` <- `flowVars.systemID`
+   * `SWT_RPL_Status__c` <- 
       * "Hold" if flowVars.status is 'Rejected'
       * "Released" if flowVars.status is 'Verified'
       * otherwise nothing
-   * SWT_RPL_Detail__c <- flowVars.statusMessage when .status is "Rejected", otherwise blank
-   * SWT_RPL_Last_Sync__c <- current date
+   * `SWT_RPL_Detail__c` <- `flowVars.statusMessage` when `.status` is "Rejected", otherwise blank
+   * `SWT_RPL_Last_Sync__c` <- current date
+1. Update SalesForce `Account` object
 
 
 [1]: https://github.com/lcgillies/TestGitHubPages/tree/dev/CommonServicesWrapper#common-audit-flow
