@@ -138,7 +138,7 @@
 <A name="ResponseToGTforAccountOrQuote">
 ##Send Response to GTOneSource for Acccount or Quote</A>
 *Output:* `application/xml`  
-*Namespace:* `http://localhost:9142/gtonesrc/service/1.0` 
+*Namespace:* `http://localhost:9142/gtonesrc/service/1.0`  
 1. Transform message from flow variable values:
    * `objecttype` <- `objectType`
    * `id` <- `Id`
