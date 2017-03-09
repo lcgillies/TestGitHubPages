@@ -148,11 +148,11 @@
 
 <A name="updateInvoiceStatusToZuora">
 ##Update Zuora Invoice Status from GTOneSource</A>
-1. Transform message from flow variable values
+1. Transform message from flow variable values  
 *Output:* `application/xml`  
 *Namespace:* `http://api.zuora.com`  
 *Namespace:* `http://object.api.zuora.com`  
-   * `Id` <- `systemId`
+* `Id` <- `systemId`
    * `GTSChecksuccessIndicator__c` <- 
       * "Released" if status is 'Verified' 
       * otherwise "Hold"
@@ -164,9 +164,9 @@
       * otherwise a space
      
 1. Invoke SOAP Service
-* *xmlns:zuora* `http://www.mulesoft.org/schema/mule/zuora`
-* *config-ref* `Zuora__Configuration`
-* *soapMetadataKey* `ZuoraService-Soap-http://api.zuora.com/||update||Invoice-zObject`
+*xmlns:zuora* `http://www.mulesoft.org/schema/mule/zuora`
+*config-ref* `Zuora__Configuration`
+*soapMetadataKey* `ZuoraService-Soap-http://api.zuora.com/||update||Invoice-zObject`
       
 
 [1]: https://github.com/lcgillies/TestGitHubPages/tree/dev/CommonServicesWrapper#common-audit-flow
