@@ -69,9 +69,9 @@
 1. Perform <A href="ResponseToGTforAccountOrQuote">ResponseToGTforAccountOrQuote</A> flow
 
 <A name="updateAccountStatusToSFDC">
-##Update SFDC Account Status from GTOneSource</A>
-*Output:* `application/java`  
+##Update SFDC Account Status from GTOneSource</A>  
 1. Transform message from flow variable values:
+*Output:* `application/java`  
    * `Id` <- `systemID`
    * `SWT_RPL_Status__c` <- 
       * "Hold" if status is 'Rejected'
@@ -104,8 +104,8 @@
 
 <A name="updateQuoteStatusToApttus">
 ##Update Apttus Quote Status from GTOneSource</A>
-*Output:* `application/java`  
 1. Transform message from flow variable values:
+*Output:* `application/java`  
    * `Id` <- `systemID`
    * `SWT_GTS_Status__c` <- 
       * "Hold" if status is 'Rejected'
@@ -137,9 +137,9 @@
 
 <A name="ResponseToGTforAccountOrQuote">
 ##Send Response to GTOneSource for Acccount or Quote</A>
+1. Transform message from flow variable values:
 *Output:* `application/xml`  
 *Namespace:* `http://localhost:9142/gtonesrc/service/1.0`  
-1. Transform message from flow variable values:
    * `objecttype` <- `objectType`
    * `id` <- `Id`
    * `status` <- `updateStatus`
