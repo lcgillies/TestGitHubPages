@@ -223,9 +223,23 @@
 <A name="amendmentCreation">
 ##(Amendment Creation)</A>
     amendmentCreation
-1. If flow var `status` is not "Rejected", log "Not verified, Neither Rejected, Defaulted" as INFO (Default)
+1. If flow var `status` is not "Rejected", log "Not verified, Neither Rejected, Defaulted" as INFO (Default)  
+*otherwise:*
+1. Transform message from flow vars:
+*output* `application/xml`
+*Ns0* `http://api.zuora.com/`
+*Ns1* `http://object.api.zuora.com/`
+   * Ns0#query:
+   * `Ns0#queryString` <- "select SubscriptionId FROM InvoiceItem where InvoiceId= '" ++ flowVars.systemId ++ "'"
+1. Invoke SOAP Service  
+*config-ref* `Zuora__Configuration`  
+*soapMetadataKey* `ZuoraService-Soap-http://api.zuora.com/||query||Undefined` 
+*doc:name* "Zuora"
+1. Convert DOM to XML
+1. If `ns1:size` of payload is 0, Log "----No Need to create Amendment------" as INFO (Default)  
 *otherwise:*
 1. 
+
 
 
 
