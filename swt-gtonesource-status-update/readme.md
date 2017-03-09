@@ -234,7 +234,7 @@
 1. Invoke SOAP Service  
 *config-ref* `Zuora__Configuration`  
 *soapMetadataKey* `ZuoraService-Soap-http://api.zuora.com/||query||Undefined` 
-*doc:name* "Zuora"
+*doc:name* "Zuora"  
 1. Convert DOM to XML
 1. If `ns1:size` of payload is 0, Log "----No Need to create Amendment------" as INFO (Default)  
 *otherwise:*
