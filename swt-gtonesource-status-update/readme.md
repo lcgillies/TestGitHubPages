@@ -26,6 +26,10 @@
 ##Start GTOneSource SOAP Service Flow</A>
 1. Listen via HTTP on `/gtonesrc`
 1. Connect message to proxy service for GTOneSource using `GTONESRCService`
+   * *Namespace:* http://localhost:9142/gtonesrc/service/1.0  
+   * *Service:* GTONESRCService
+   * *wsdlLocation:* gtonesource.wsdl
+   * *doc:name* CXF
 1. Convert the DOM to XML
 1. Set interface properties for request:
    * `transactionLevel <- "Start of the flow"
@@ -66,6 +70,7 @@
 
 <A name="updateAccountStatusToSFDC">
 ##Update SFDC Account Status from GTOneSource</A>
+*Output:* application/java  
 1. Transform message from flow variable values:
    * `Id` <- `systemID`
    * `SWT_RPL_Status__c` <- 
@@ -98,7 +103,8 @@
    1. Via Groovy, throw an `IllegalStateException` passing `updateMessage` and return the payload
 
 <A name="updateQuoteStatusToApttus">
-##Update Apttus Quote Status from GTOneSource</A>  
+##Update Apttus Quote Status from GTOneSource</A>
+*Output:* application/java  
 1. Transform message from flow variable values:
    * `Id` <- `systemID`
    * `SWT_GTS_Status__c` <- 
@@ -131,6 +137,8 @@
 
 <A name="ResponseToGTforAccountOrQuote">
 ##Send Response to GTOneSource for Acccount or Quote</A>
+*Output:* application/xml  
+*Namespace:* http://localhost:9142/gtonesrc/service/1.0 
 1. Transform message from flow variable values:
    * `objecttype` <- `objectType`
    * `id` <- `Id`
