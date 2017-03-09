@@ -57,17 +57,17 @@
    * "APTTUS" - perform flow <A href="#updateQuoteStatusToApttus">updateQuoteStatusToApttus</A>
    * "ZUORA" - perform flow <A href="#updateInvoiceStatusToZuora">updateInvoiceStatusToZuora</A>
 
-###Error Handling
+###Error Handling - Choice Exception Strategy
 
 ####Catch Exception Strategy (`java.lang.IllegalStateException`)
 1. Execute flow if there is an exception caused via `java.lang.IllegalStateException`
-1. Perform <A href="commonServicesExceptionFlow">commonServicesExceptionFlow</A> flow (async)
-1. Perform <A href="sendingErrorEmail">sendingErrorEmail</A> flow
-1. Perform <A href="ResponseToGTforAccountOrQuote">ResponseToGTforAccountOrQuote</A> flow
+1. Perform [commonServicesExceptionFlow] [2] flow (async)
+1. Perform <A href="#sendingErrorEmail">sendingErrorEmail</A> flow
+1. Perform <A href="#ResponseToGTforAccountOrQuote">ResponseToGTforAccountOrQuote</A> flow
 
 ####Catch Exception Strategy
-1. Perform <A href="commonServicesExceptionFlow">commonServicesExceptionFlow</A> flow (async)
-1. Perform <A href="ResponseToGTforAccountOrQuote">ResponseToGTforAccountOrQuote</A> flow
+1. Perform [commonServicesExceptionFlow] [2] flow (async)
+1. Perform <A href="#ResponseToGTforAccountOrQuote">ResponseToGTforAccountOrQuote</A> flow
 
 <A name="updateAccountStatusToSFDC">
 ##Update SFDC Account Status from GTOneSource</A>  
@@ -198,11 +198,31 @@
       * null of `success` is true
       * otherwise `error`
  1. Set flow var `responseToGT` to payload
- 1. Perform <A href="settingInterfaceProperties">settingInterfaceProperties</A> flow
- 1. Perform <A href="amendmentCreation">amendmentCreation</A> flow
- 1. Perform <A href="sendingGTResponseForInvoice">sendingGTResponseForInvoice</A> flow
+ 1. Perform <A href="#settingInterfaceProperties">settingInterfaceProperties</A> flow
+ 1. Perform <A href="#amendmentCreation">amendmentCreation</A> flow
+ 1. Perform <A href="#sendingGTResponseForInvoice">sendingGTResponseForInvoice</A> flow
 
 ###Error Handling
-      
+
+####Catch Exception Strategy (`java.lang.IllegalArgumentException`)
+1. Execute flow if there is an exception caused via `java.lang.IllegalArgumentException`
+1. Perform [commonServicesExceptionFlow] [2] flow (async)
+1. Perform <A href="#sendingErrorEmail">sendingErrorEmail</A> flow
+1. Perform <A href="#sendingGTResponseForInvoice">sendingGTResponseForInvoice</A> flow
+
+####Catch Exception Strategy (`java.lang.IllegalStateException`)
+1. Execute flow if there is an exception caused via `java.lang.IllegalStateException`
+1. Perform [commonServicesExceptionFlow] [2] flow (async)
+1. Perform <A href="#sendingErrorEmail">sendingErrorEmail</A> flow
+1. Perform <A href="#sendingGTResponseForInvoice">sendingGTResponseForInvoice</A> flow
+
+####Catch Exception Strategy
+1. Perform [commonServicesExceptionFlow] [2] flow (async)
+1. Perform <A href="#sendingGTResponseForInvoice">sendingGTResponseForInvoice</A> flow
+
+
+
+
 
 [1]: https://github.com/lcgillies/TestGitHubPages/tree/dev/CommonServicesWrapper#common-audit-flow
+[2]: https://github.com/lcgillies/TestGitHubPages/tree/dev/CommonServicesWrapper#common-services-exception-flow
