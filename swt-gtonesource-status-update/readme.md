@@ -152,7 +152,20 @@
 *Namespace:* `http://api.zuora.com`  
 *Namespace:* `http://object.api.zuora.com`  
 1. Transform message from flow variable values
-
+   * `Id` <- `systemId`
+   * `GTSChecksuccessIndicator__c` <- 
+      * "Released" if status is 'Verified' 
+      * otherwise "Hold"
+   * `Status` <- 
+      * "Posted" if status is 'Verified'
+      * otherwise null
+   * `GTResponseDeniedReason__c` <-
+      * `statusMessage` if status is 'Rejected'
+      * otherwise a space
+1. Invoke SOAP Service
+   * *xmlns:zuora* `http://www.mulesoft.org/schema/mule/zuora`
+   * *config-ref* `Zuora__Configuration`
+   * *soapMetadataKey* `ZuoraService-Soap-http://api.zuora.com/||update||Invoice-zObject`
 
 
 [1]: https://github.com/lcgillies/TestGitHubPages/tree/dev/CommonServicesWrapper#common-audit-flow
