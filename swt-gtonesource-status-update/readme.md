@@ -161,7 +161,7 @@
       * otherwise null
    * `GTResponseDeniedReason__c` <-
       * `statusMessage` if status is 'Rejected'
-      * otherwise a space
+      * otherwise a space  
 1. Invoke SOAP Service
    * *xmlns:zuora* `http://www.mulesoft.org/schema/mule/zuora`
    * *config-ref* `Zuora__Configuration`
