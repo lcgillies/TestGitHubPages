@@ -220,7 +220,12 @@
 1. Perform [commonServicesExceptionFlow] [2] flow (async)
 1. Perform <A href="#sendingGTResponseForInvoice">sendingGTResponseForInvoice</A> flow
 
-
+<A name="amendmentCreation">
+##(Amendment Creation)</A>
+    amendmentCreation
+1. If flow var `status` is not "Rejected", log "Not verified, Neither Rejected, Defaulted" as INFO (Default)
+*otherwise:*
+1. 
 
 
 
