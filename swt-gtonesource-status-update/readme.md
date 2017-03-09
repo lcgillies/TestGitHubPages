@@ -24,6 +24,7 @@
 
 <A name="gtonesrcsoapsvcFlow">
 ##Start GTOneSource SOAP Service Flow</A>
+    gtonesrcsoapsvcFlow
 1. Listen via HTTP on `/gtonesrc`
 1. Connect message to proxy service for GTOneSource using `GTONESRCService`
    * *Namespace:* `http://localhost:9142/gtonesrc/service/1.0`  
@@ -70,6 +71,7 @@
 
 <A name="updateAccountStatusToSFDC">
 ##Update SFDC Account Status from GTOneSource</A>  
+    updateAccountStatusToSFDC
 1. Transform message from flow variable values:  
 *Output:* `application/java`  
    * `Id` <- `systemID`
@@ -104,6 +106,7 @@
 
 <A name="updateQuoteStatusToApttus">
 ##Update Apttus Quote Status from GTOneSource</A>
+    updateQuoteStatusToApttus
 1. Transform message from flow variable values:  
 *Output:* `application/java`  
    * `Id` <- `systemID`
@@ -137,6 +140,7 @@
 
 <A name="ResponseToGTforAccountOrQuote">
 ##Send Response to GTOneSource for Acccount or Quote</A>
+    ResponseToGTforAccountOrQuote
 1. Transform message from flow variable values:
 *Output:* `application/xml`  
 *Namespace:* `http://localhost:9142/gtonesrc/service/1.0`  
@@ -148,6 +152,7 @@
 
 <A name="updateInvoiceStatusToZuora">
 ##Update Zuora Invoice Status from GTOneSource</A>
+    updateInvoiceStatusToZuora
 1. Transform message from flow variable values  
 *Output:* `application/xml`  
 *Ns0:* `http://api.zuora.com`  
@@ -197,6 +202,7 @@
  1. Perform <A href="amendmentCreation">amendmentCreation</A> flow
  1. Perform <A href="sendingGTResponseForInvoice">sendingGTResponseForInvoice</A> flow
 
+###Error Handling
       
 
 [1]: https://github.com/lcgillies/TestGitHubPages/tree/dev/CommonServicesWrapper#common-audit-flow
