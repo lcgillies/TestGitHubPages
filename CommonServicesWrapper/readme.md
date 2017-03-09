@@ -124,7 +124,7 @@
 ![swt_CommonServicesWrapper.commonServicesWrapper.NotificationSub_Flow] [g104]
 
 <A name="RemovePayloadContent">
-####Remove Payload Contnet</A>
+####Remove Payload Content</A>
     RemovePayloadContent
    1. Hash the payload JSON using java.util.HashMap
    1. Build an expression for `message.payload.Auditing.originalPayload` setting it to the `message.payload`
