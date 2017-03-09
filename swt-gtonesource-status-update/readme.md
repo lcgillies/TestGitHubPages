@@ -151,8 +151,8 @@
 1. Transform message from flow variable values  
 *Output:* `application/xml`  
 *Namespace:* `http://api.zuora.com`  
-*Namespace:* `http://object.api.zuora.com`  
-* `Id` <- `systemId`
+*Namespace:* `http://object.api.zuora.com`
+   * `Id` <- `systemId`
    * `GTSChecksuccessIndicator__c` <- 
       * "Released" if status is 'Verified' 
       * otherwise "Hold"
