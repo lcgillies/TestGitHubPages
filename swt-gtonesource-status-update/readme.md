@@ -225,10 +225,10 @@
     amendmentCreation
 1. If flow var `status` is not "Rejected", log "Not verified, Neither Rejected, Defaulted" as INFO (Default)  
 *otherwise:*
-1. Transform message from flow vars:
-*output* `application/xml`
-*Ns0* `http://api.zuora.com/`
-*Ns1* `http://object.api.zuora.com/`
+1. Transform message from flow vars:  
+*output* `application/xml`  
+*Ns0* `http://api.zuora.com/`  
+*Ns1* `http://object.api.zuora.com/`  
    * Ns0#query:
    * `Ns0#queryString` <- "select SubscriptionId FROM InvoiceItem where InvoiceId= '" ++ flowVars.systemId ++ "'"
 1. Invoke SOAP Service  
