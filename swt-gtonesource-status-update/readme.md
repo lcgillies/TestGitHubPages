@@ -70,7 +70,7 @@
 
 <A name="updateAccountStatusToSFDC">
 ##Update SFDC Account Status from GTOneSource</A>  
-1. Transform message from flow variable values:
+1. Transform message from flow variable values:  
 *Output:* `application/java`  
    * `Id` <- `systemID`
    * `SWT_RPL_Status__c` <- 
@@ -104,7 +104,7 @@
 
 <A name="updateQuoteStatusToApttus">
 ##Update Apttus Quote Status from GTOneSource</A>
-1. Transform message from flow variable values:
+1. Transform message from flow variable values:  
 *Output:* `application/java`  
    * `Id` <- `systemID`
    * `SWT_GTS_Status__c` <- 
@@ -150,16 +150,17 @@
 ##Update Zuora Invoice Status from GTOneSource</A>
 1. Transform message from flow variable values  
 *Output:* `application/xml`  
-*Namespace:* `http://api.zuora.com`  
-*Namespace:* `http://object.api.zuora.com`
-   * `Id` <- `systemId`
-   * `GTSChecksuccessIndicator__c` <- 
+*Ns0:* `http://api.zuora.com`  
+*Ns1:* `http://object.api.zuora.com`
+   * Ns0#update:
+   * `Ns1#Id` <- `systemId`
+   * `Ns1#GTSChecksuccessIndicator__c` <- 
       * "Released" if status is 'Verified' 
       * otherwise "Hold"
-   * `Status` <- 
+   * `Ns1#Status` <- 
       * "Posted" if status is 'Verified'
       * otherwise null
-   * `GTResponseDeniedReason__c` <-
+   * `Ns1#GTResponseDeniedReason__c` <-
       * `statusMessage` if status is 'Rejected'
       * otherwise a space
      
@@ -167,7 +168,35 @@
 *xmlns:zuora* `http://www.mulesoft.org/schema/mule/zuora`  
 *config-ref* `Zuora__Configuration`  
 *soapMetadataKey* `ZuoraService-Soap-http://api.zuora.com/||update||Invoice-zObject`  
-   * this
+1. Convert DOM to XML
+1. Set these message properties:
+   * `transactionLevel` <- "Invoice Status Updated in Zuora"
+   * `flowName` <- `${flowName}`
+   * `protocol` <- "HTTP"
+   * `format` <- "SOAP"
+   * `sourceSystemName` <- `${sourceSystemName}`
+   * `targetSystemName` <- `${targetSystemName}`
+   * `serviceName` <- `${serviceName}`
+   * `isAuditReq` <- `${isAuditReq}`
+   * `isAuditPayldReq` <- `${isAuditPayldReq}`
+1. Perform [commonServicesAuditFlow] [1] (async)
+1. Set flow var `success` to `Success` value using XPATH on Ns1
+1. Set flow var `error` to `Message` value using XPATH on Ns1
+1. Transform message from flow vars:
+*output* `application/xml`
+*Ns0* `http://localhost:9142/gtonesrc/service/1.0`
+   * Ns0#update:
+   * `Ns0#objecttype` <- `objectType`
+   * `Ns0#id` <- `Id`
+   * `Ns0#status` <- `success`
+   * `Ns0#message` <-
+      * null of `success` is true
+      * otherwise `error`
+ 1. Set flow var `responseToGT` to payload
+ 1. Perform <A href="settingInterfaceProperties">settingInterfaceProperties</A> flow
+ 1. Perform <A href="amendmentCreation">amendmentCreation</A> flow
+ 1. Perform <A href="sendingGTResponseForInvoice">sendingGTResponseForInvoice</A> flow
+
       
 
 [1]: https://github.com/lcgillies/TestGitHubPages/tree/dev/CommonServicesWrapper#common-audit-flow
