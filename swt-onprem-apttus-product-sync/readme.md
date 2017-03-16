@@ -1,5 +1,5 @@
-# Synch Anaplan to Salesforce
+# Synch Product (PPA) to Apttus
 
-    swt-anaplan-sfdc-sync
+    swt-onprem-apttus-product-sync
    
 ## Flows Outline
